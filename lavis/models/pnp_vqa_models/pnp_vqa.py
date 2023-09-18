@@ -28,7 +28,7 @@ class PNPVQA(BaseModel):
     Supported model types:
         - base: BLIPITM, BLIPCaption, PNPUnifiedQAv2FiD (t5-base)
         - large: BLIPITM, BLIPCaption, PNPUnifiedQAv2FiD (t5-large)
-        - 3b: BLIPITM, BLIPCaption, PNPUnifiedQAv2FiD (t5-3b)
+        - 3b: BLIPITM, BLIPCaption, PNPUnifiedQAv2FiD (t5-3b)eval
 
     Usage:
         >>> from lavis.models import load_model

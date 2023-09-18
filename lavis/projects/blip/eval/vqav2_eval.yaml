@@ -31,7 +31,7 @@ run:
   min_len: 1
   num_beams: 3
   num_ans_candidates: 128
-  inference_method: "rank"
+  inference_method: "generate"
 
   seed: 42
   output_dir: "output/BLIP/VQA"

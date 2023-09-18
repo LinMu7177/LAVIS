@@ -41,7 +41,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/tsingqguo/wwx/LAVIS",
+    "last_opened_file_path": "/home/tsingqguo/wwx/paper_worksapce/LAVIS/lavis/projects/blip2/eval",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,7 +72,7 @@
       <window_info anchor="bottom" id="Problems View" order="7" />
       <window_info anchor="bottom" id="Services" order="8" weight="0.33055556" />
       <window_info anchor="bottom" id="Dependency Checker" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.42055553" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.4583333" />
       <window_info anchor="bottom" id="Debug" order="11" weight="0.38833332" />
       <window_info anchor="right" id="Endpoints" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="1" />
@@ -83,8 +83,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lavis/projects/blip2/train" />
       <recent name="$PROJECT_DIR$/lavis/projects/blip2/eval" />
+      <recent name="$PROJECT_DIR$/lavis/projects/blip2/train" />
     </key>
   </component>
   <component name="RunManager" selected="Python.evaluate">
@@ -95,15 +95,15 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis)" />
+      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_v2/bin/python" />
+      <option name="SDK_NAME" value="Python 3.8 (lavis_v2)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/evaluate.py" />
-      <option name="PARAMETERS" value="--cfg-path lavis/projects/blip2/eval/vqav2_zeroshot_instruct_eval.yaml" />
+      <option name="PARAMETERS" value="--cfg-path lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_eval.yaml" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -176,7 +176,7 @@
       <workItem from="1695012674501" duration="3268000" />
       <workItem from="1695019139395" duration="145000" />
       <workItem from="1695019372316" duration="368000" />
-      <workItem from="1695019777611" duration="1134000" />
+      <workItem from="1695019777611" duration="1646000" />
     </task>
     <servers />
   </component>
@@ -228,27 +228,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py</url>
-          <line>195</line>
+          <line>198</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py</url>
-          <line>201</line>
+          <line>204</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py</url>
-          <line>235</line>
+          <line>238</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py</url>
-          <line>228</line>
+          <line>231</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py</url>
-          <line>722</line>
+          <line>724</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -258,7 +258,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py</url>
-          <line>702</line>
+          <line>704</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
