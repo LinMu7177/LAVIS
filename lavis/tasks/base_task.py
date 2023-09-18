@@ -250,7 +250,7 @@ class BaseTask:
         }
 
     @staticmethod
-    def save_result(result, result_dir, filename, remove_duplicate=""):
+    def save_result(result,  filename, remove_duplicate="", result_dir="/mnt/local/wwx/Output/blip_vqa/"):
         import json
 
         result_file = os.path.join(

@@ -2,9 +2,9 @@
 Requires Transformer 4.28 and above, implementation may change according the Llama implementation
 """
 import logging
-import string
-from packaging import version
 
+from packaging import version
+import string
 import torch
 from torch.cuda.amp import autocast as autocast
 import torch.nn as nn
@@ -79,10 +79,12 @@ class Blip2VicunaInstruct(Blip2Base):
             self.Qformer.resize_token_embeddings(len(self.tokenizer))
         self.Qformer.cls = None
 
+        print('Loading LLAMA')
         self.llm_tokenizer = LlamaTokenizer.from_pretrained(llm_model, use_fast=False, truncation_side="left")
         self.llm_model = LlamaForCausalLM.from_pretrained(
             llm_model, torch_dtype=torch.float16
         )
+        print('Loading LLAMA Done')
         self.llm_tokenizer.add_special_tokens({'pad_token': '[PAD]'})
         self.llm_tokenizer.add_special_tokens({'bos_token': '</s>'})
         self.llm_tokenizer.add_special_tokens({'eos_token': '</s>'})
@@ -192,7 +194,8 @@ class Blip2VicunaInstruct(Blip2Base):
 
         self.llm_tokenizer.truncation_side = 'right'
         text_output_tokens = self.llm_tokenizer(
-            [t + self.llm_tokenizer.eos_token for t in samples['text_output']],
+            # [t + self.llm_tokenizer.eos_token for t in samples['text_output']],
+            [t + self.llm_tokenizer.eos_token for t in samples['answer']],
             return_tensors="pt",
             padding="longest",
             truncation=True,

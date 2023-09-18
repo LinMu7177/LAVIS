@@ -71,6 +71,8 @@ class COCOVQAEvalDataset(VQAEvalDataset, __DisplMixin):
         self.vis_root = vis_root
 
         self.annotation = json.load(open(ann_paths[0]))
+        # select top 100
+        # self.annotation = self.annotation[:1000]
 
         answer_list_path = ann_paths[1]
         if os.path.exists(answer_list_path):
