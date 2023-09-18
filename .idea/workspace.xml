@@ -72,7 +72,7 @@
       <window_info anchor="bottom" id="Problems View" order="7" />
       <window_info anchor="bottom" id="Services" order="8" weight="0.33055556" />
       <window_info anchor="bottom" id="Dependency Checker" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.365" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.42055553" />
       <window_info anchor="bottom" id="Debug" order="11" weight="0.38833332" />
       <window_info anchor="right" id="Endpoints" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="1" />
@@ -176,7 +176,7 @@
       <workItem from="1695012674501" duration="3268000" />
       <workItem from="1695019139395" duration="145000" />
       <workItem from="1695019372316" duration="368000" />
-      <workItem from="1695019777611" duration="832000" />
+      <workItem from="1695019777611" duration="1134000" />
     </task>
     <servers />
   </component>
@@ -228,27 +228,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py</url>
-          <line>198</line>
+          <line>195</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py</url>
-          <line>204</line>
+          <line>201</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py</url>
-          <line>238</line>
+          <line>235</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py</url>
-          <line>231</line>
+          <line>228</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py</url>
-          <line>724</line>
+          <line>722</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -258,7 +258,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py</url>
-          <line>704</line>
+          <line>702</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
