@@ -7,12 +7,15 @@
 
 import os
 import json
+import numpy as np
 
 from PIL import Image
 
 from lavis.datasets.datasets.vqa_datasets import VQADataset, VQAEvalDataset
 
 from collections import OrderedDict
+
+from ReLA2.Inference import GRES_Inference
 
 
 class __DisplMixin:
@@ -30,15 +33,17 @@ class __DisplMixin:
         )
 
 
-class COCOVQADataset(VQADataset, __DisplMixin):
+class COCOVQAGRESDataset(VQADataset, __DisplMixin):
     def __init__(self, vis_processor, text_processor, vis_root, ann_paths):
         super().__init__(vis_processor, text_processor, vis_root, ann_paths)
+        self.gres_model = GRES_Inference()
 
     def __getitem__(self, index):
         ann = self.annotation[index]
 
         image_path = os.path.join(self.vis_root, ann["image"])
         image = Image.open(image_path).convert("RGB")
+        raw_image = np.array(image)
 
         image = self.vis_processor(image)
         question = self.text_processor(ann["question"])
@@ -55,13 +60,14 @@ class COCOVQADataset(VQADataset, __DisplMixin):
 
         return {
             "image": image,
+            "raw_image": raw_image,
             "text_input": question,
             "answers": answers,
             "weights": weights,
         }
 
 
-class COCOVQAEvalDataset(VQAEvalDataset, __DisplMixin):
+class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
     def __init__(self, vis_processor, text_processor, vis_root, ann_paths):
         """
         vis_root (string): Root directory of images (e.g. coco/images/)
@@ -71,7 +77,7 @@ class COCOVQAEvalDataset(VQAEvalDataset, __DisplMixin):
         self.vis_root = vis_root
 
         self.annotation = json.load(open(ann_paths[0]))
-        # select top 100
+        # select top 100cuda
         self.annotation = self.annotation[:4000]
 
         answer_list_path = ann_paths[1]
@@ -92,17 +98,33 @@ class COCOVQAEvalDataset(VQAEvalDataset, __DisplMixin):
 
         self._add_instance_ids()
 
+        self.gres_model = GRES_Inference()
+
     def __getitem__(self, index):
         ann = self.annotation[index]
 
+        question = self.text_processor(ann["question"])
+
         image_path = os.path.join(self.vis_root, ann["image"])
         image = Image.open(image_path).convert("RGB")
+        raw_image = np.array(image)
+
+        focus_dict = {}
+        focus_dict['image'] = raw_image
+        focus_dict['text_input'] = question[0]
+        resize_image, focus_dict = self.gres_model.infer(focus_dict)
+
+        raw_focus_image = resize_image * focus_dict['mask'][0].cpu()
+        focus_image = np.array(raw_focus_image.permute(1, 2, 0))
+
+        focus_image = Image.fromarray(np.uint8(focus_image))
+        focus_image = self.vis_processor(focus_image)
 
         image = self.vis_processor(image)
-        question = self.text_processor(ann["question"])
 
         return {
             "image": image,
+            "focus_image": focus_image,
             "text_input": question,
             "question_id": ann["question_id"],
             "instance_id": ann["instance_id"],

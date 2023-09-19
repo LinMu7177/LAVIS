@@ -6,13 +6,13 @@
 # Overall Accuracy is: 51.88 (result different from BLIP-2 paper due to different implementation and transformers version)
 
 model:
-  arch: blip2_vicuna_instruct
+  arch: blip2_vicuna_instruct_gres
   model_type: vicuna7b
   use_grad_checkpoint: False
   llm_model: "/mnt/local/wwx/Models/Vicuna/vicuna-7b/"
 
 datasets:
-  coco_vqa: # name of the dataset builder
+  coco_vqa_gres: # name of the dataset builder
     type: eval
     vis_processor:
         eval:

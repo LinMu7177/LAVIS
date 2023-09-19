@@ -26,6 +26,7 @@ from lavis.datasets.builders.imagefolder_builder import ImageNetBuilder
 from lavis.datasets.builders.video_qa_builder import MSRVTTQABuilder, MSVDQABuilder
 from lavis.datasets.builders.vqa_builder import (
     COCOVQABuilder,
+    COCOVQAGRESBuilder,
     OKVQABuilder,
     VGVQABuilder,
     GQABuilder,
@@ -46,6 +47,7 @@ __all__ = [
     "COCOCapBuilder",
     "COCORetrievalBuilder",
     "COCOVQABuilder",
+    "COCOVQAGRESBuilder",
     "ConceptualCaption12MBuilder",
     "ConceptualCaption3MBuilder",
     "DiDeMoRetrievalBuilder",
