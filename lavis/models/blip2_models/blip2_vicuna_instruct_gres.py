@@ -149,9 +149,13 @@ class Blip2VicunaInstructGRES(Blip2Base):
         # print('-----------------')
 
         image = samples["image"]
+        focus_image = samples["focus_image"]
+        
         with self.maybe_autocast():
             image_embeds = self.ln_vision(self.visual_encoder(image))
+            focus_image_embeds = self.ln_vision(self.visual_encoder(focus_image))
         image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(image.device)
+        focus_image_atts = torch.ones(focus_image_embeds.size()[:-1], dtype=torch.long).to(image.device)
 
         bs = image.size(0)
 
@@ -175,6 +179,14 @@ class Blip2VicunaInstructGRES(Blip2Base):
                 encoder_attention_mask=image_atts,
                 return_dict=True,
             )
+            focus_query_output = self.Qformer.bert(
+                text_Qformer.input_ids,
+                attention_mask=Qformer_atts,
+                query_embeds=query_tokens,
+                encoder_hidden_states=focus_image_embeds,
+                encoder_attention_mask=focus_image_atts,
+                return_dict=True,
+            )
         else:
             query_output = self.Qformer.bert(
                 query_embeds=query_tokens,
@@ -182,9 +194,18 @@ class Blip2VicunaInstructGRES(Blip2Base):
                 encoder_attention_mask=image_atts,
                 return_dict=True,
             )
+            focus_query_output = self.Qformer.bert(
+                query_embeds=query_tokens,
+                encoder_hidden_states=focus_image_embeds,
+                encoder_attention_mask=focus_image_atts,
+                return_dict=True,
+            )
 
         inputs_llm = self.llm_proj(query_output.last_hidden_state[:,:query_tokens.size(1),:])
         atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(image.device)
+
+        focus_inputs_llm = self.llm_proj(focus_query_output.last_hidden_state[:, :query_tokens.size(1), :])
+        focus_atts_llm = torch.ones(focus_inputs_llm.size()[:-1], dtype=torch.long).to(image.device)
 
         self.llm_tokenizer.padding_side = "right"
         self.llm_tokenizer.truncation_side = 'left'
@@ -224,13 +245,13 @@ class Blip2VicunaInstructGRES(Blip2Base):
 
         # do not apply loss to the query tokens
         empty_targets = (
-            torch.ones(atts_llm.size(), dtype=torch.long).to(image.device).fill_(-100)
+            torch.ones(torch.cat([atts_llm,focus_atts_llm], dim=1).size(), dtype=torch.long).to(image.device).fill_(-100)
         )
         targets = torch.cat([empty_targets, targets], dim=1)
 
         inputs_embeds = self.llm_model.get_input_embeddings()(llm_tokens['input_ids'])
-        inputs_embeds = torch.cat([inputs_llm, inputs_embeds], dim=1)
-        attention_mask = torch.cat([atts_llm, llm_tokens['attention_mask']], dim=1)
+        inputs_embeds = torch.cat([inputs_llm, focus_inputs_llm, inputs_embeds], dim=1)
+        attention_mask = torch.cat([atts_llm, focus_atts_llm, llm_tokens['attention_mask']], dim=1)
 
         with self.maybe_autocast():
             outputs = self.llm_model(

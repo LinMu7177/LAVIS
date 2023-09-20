@@ -16,7 +16,7 @@ datasets:
               - https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/vqav2/vqa_train.json
               - https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/vqav2/vqa_val.json
           storage:
-              - coco/annotations/vqa_train.json
+              - coco/annotations/vqa_train_demo.json
               - coco/annotations/vqa_val.json
         val:
           url:

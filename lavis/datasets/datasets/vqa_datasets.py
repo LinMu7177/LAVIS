@@ -17,10 +17,16 @@ class VQADataset(BaseDataset):
     def collater(self, samples):
         image_list, question_list, answer_list, weight_list = [], [], [], []
 
+        if "focus_image" in samples[0].keys():
+            focus_image_list = []
+
+
         num_answers = []
 
         for sample in samples:
             image_list.append(sample["image"])
+            if "focus_image" in sample.keys():
+                focus_image_list.append(sample["focus_image"])
             question_list.append(sample["text_input"])
 
             weight_list.extend(sample["weights"])
@@ -29,14 +35,23 @@ class VQADataset(BaseDataset):
 
             answer_list.extend(answers)
             num_answers.append(len(answers))
-
-        return {
-            "image": torch.stack(image_list, dim=0),
-            "text_input": question_list,
-            "answer": answer_list,
-            "weight": torch.Tensor(weight_list),
-            "n_answers": torch.LongTensor(num_answers),
-        }
+        if "focus_image" in sample.keys():
+            return {
+                "image": torch.stack(image_list, dim=0),
+                "focus_image": torch.stack(focus_image_list, dim=0),
+                "text_input": question_list,
+                "answer": answer_list,
+                "weight": torch.Tensor(weight_list),
+                "n_answers": torch.LongTensor(num_answers),
+            }
+        else:
+            return {
+                "image": torch.stack(image_list, dim=0),
+                "text_input": question_list,
+                "answer": answer_list,
+                "weight": torch.Tensor(weight_list),
+                "n_answers": torch.LongTensor(num_answers),
+            }
 
 
 class VQAEvalDataset(BaseDataset):

@@ -41,12 +41,24 @@ class COCOVQAGRESDataset(VQADataset, __DisplMixin):
     def __getitem__(self, index):
         ann = self.annotation[index]
 
+        question = self.text_processor(ann["question"])
+
         image_path = os.path.join(self.vis_root, ann["image"])
         image = Image.open(image_path).convert("RGB")
         raw_image = np.array(image)
 
+        focus_dict = {}
+        focus_dict['image'] = raw_image
+        focus_dict['text_input'] = question[0]
+        resize_image, focus_dict = self.gres_model.infer(focus_dict)
+
+        raw_focus_image = resize_image * focus_dict['mask'][0].cpu()
+        focus_image = np.array(raw_focus_image.permute(1, 2, 0))
+
+        focus_image = Image.fromarray(np.uint8(focus_image))
+        focus_image = self.vis_processor(focus_image)
+
         image = self.vis_processor(image)
-        question = self.text_processor(ann["question"])
 
         answer_weight = {}
         for answer in ann["answer"]:
@@ -60,7 +72,7 @@ class COCOVQAGRESDataset(VQADataset, __DisplMixin):
 
         return {
             "image": image,
-            "raw_image": raw_image,
+            "focus_image": focus_image,
             "text_input": question,
             "answers": answers,
             "weights": weights,
@@ -78,7 +90,7 @@ class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
 
         self.annotation = json.load(open(ann_paths[0]))
         # select top 100cuda
-        self.annotation = self.annotation[:4000]
+        # self.annotation = self.annotation[:4000]
 
         answer_list_path = ann_paths[1]
         if os.path.exists(answer_list_path):
