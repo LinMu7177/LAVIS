@@ -207,6 +207,12 @@ class BaseTask:
 
             samples = next(data_loader)
 
+            # cuda:1
+            samples['image'].to('cuda:4')
+            samples['focus_image'].to('cuda:4')
+            samples['weight'].to('cuda:4')
+            samples['n_answers'].to('cuda:4')
+
             samples = prepare_sample(samples, cuda_enabled=cuda_enabled)
             samples.update(
                 {

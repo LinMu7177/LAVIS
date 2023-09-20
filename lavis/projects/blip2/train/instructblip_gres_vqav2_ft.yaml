@@ -41,7 +41,7 @@ run:
   min_lr: 0
   weight_decay: 0.05
   max_epoch: 1
-  batch_size_train: 32
+  batch_size_train: 48
   batch_size_eval: 4
   num_workers: 0
 
@@ -53,7 +53,7 @@ run:
   inference_method: "generate"
 
   seed: 42
-  output_dir: "/mnt/local/wwx/Output/LAVIS_GRES/VQA_FT/tmp/"
+  output_dir: "/mnt/local/wwx/Output/LAVIS_GRES/VQA_Demo_FT/0920/"
 
   amp: False
   resume_ckpt_path: null
@@ -63,7 +63,7 @@ run:
   test_splits: ["test"]
 
   # distribution-specific
-  device: "cuda"
+  device: "cuda:4"
   world_size: 4
   dist_url: "env://"
   distributed: True

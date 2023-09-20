@@ -148,8 +148,8 @@ class Blip2VicunaInstructGRES(Blip2Base):
         # print(samples["text_output"])
         # print('-----------------')
 
-        image = samples["image"]
-        focus_image = samples["focus_image"]
+        image = samples["image"].to('cuda:4')
+        focus_image = samples["focus_image"].to('cuda:4')
         
         with self.maybe_autocast():
             image_embeds = self.ln_vision(self.visual_encoder(image))
@@ -286,7 +286,7 @@ class Blip2VicunaInstructGRES(Blip2Base):
         else:
             prompt = self.prompt
 
-        image = samples["image"]
+        image = samples["image"].to('cuda:4')
 
         focus_image = samples["focus_image"]
 
@@ -458,11 +458,6 @@ class Blip2VicunaInstructGRES(Blip2Base):
             text_input = samples["text_input"]
 
         samples["prompt"] = text_input
-
-        # samples['image'].to('cuda:1')
-        # samples['focus_image'].to('cuda:1')
-        # samples['question_id'].to('cuda:1')
-
 
         output_text = self.generate(
             samples,
