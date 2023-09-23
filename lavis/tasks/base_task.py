@@ -94,6 +94,11 @@ class BaseTask:
         for samples in metric_logger.log_every(data_loader, print_freq, header):
             samples = prepare_sample(samples, cuda_enabled=cuda_enabled)
 
+            # change cuda
+            samples['image'] = samples['image'].to('cuda:7')
+            samples['focus_image'] = samples['focus_image'].to('cuda:7')
+            samples['question_id'] = samples['question_id'].to('cuda:7')
+
             eval_output = self.valid_step(model=model, samples=samples)
             results.extend(eval_output)
 
@@ -208,10 +213,10 @@ class BaseTask:
             samples = next(data_loader)
 
             # cuda:1
-            samples['image'].to('cuda:4')
-            samples['focus_image'].to('cuda:4')
-            samples['weight'].to('cuda:4')
-            samples['n_answers'].to('cuda:4')
+            samples['image'].to('cuda:7')
+            samples['focus_image'].to('cuda:7')
+            samples['weight'].to('cuda:7')
+            samples['n_answers'].to('cuda:7')
 
             samples = prepare_sample(samples, cuda_enabled=cuda_enabled)
             samples.update(

@@ -8,7 +8,7 @@ from annotator.uniformer.mmseg.datasets.pipelines import Compose
 from annotator.uniformer.mmseg.models import build_segmentor
 
 
-def init_segmentor(config, checkpoint=None, device='cuda:0'):
+def init_segmentor(config, checkpoint=None, device='cuda:7'):
     """Initialize a segmentor from config file.
 
     Args:
@@ -16,7 +16,7 @@ def init_segmentor(config, checkpoint=None, device='cuda:0'):
             object.
         checkpoint (str, optional): Checkpoint path. If left as None, the model
             will not load any weights.
-        device (str, optional) CPU/CUDA device option. Default 'cuda:0'.
+        device (str, optional) CPU/CUDA device option. Default 'cuda:7'.
             Use 'cpu' for loading model on CPU.
     Returns:
         nn.Module: The constructed segmentor.

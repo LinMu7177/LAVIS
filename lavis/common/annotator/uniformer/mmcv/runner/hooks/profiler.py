@@ -25,7 +25,7 @@ class ProfilerHook(Hook):
             training, otherwise it indicates the first profile_iters
             iterations. Default: 1.
         activities (list[str]): List of activity groups (CPU, CUDA) to use in
-            profiling. Default: ['cpu', 'cuda'].
+            profiling. Default: ['cpu', 'cuda:7'].
         schedule (dict, optional): Config of generating the callable schedule.
             if schedule is None, profiler will not add step markers into the
             trace and table view. Default: None.
@@ -55,7 +55,7 @@ class ProfilerHook(Hook):
     def __init__(self,
                  by_epoch: bool = True,
                  profile_iters: int = 1,
-                 activities: List[str] = ['cpu', 'cuda'],
+                 activities: List[str] = ['cpu', 'cuda:7'],
                  schedule: Optional[dict] = None,
                  on_trace_ready: Optional[Union[Callable, dict]] = None,
                  record_shapes: bool = False,
@@ -85,7 +85,7 @@ class ProfilerHook(Hook):
             activity = activity.lower()
             if activity == 'cpu':
                 self.activities.append(profiler.ProfilerActivity.CPU)
-            elif activity == 'cuda':
+            elif activity == 'cuda:7':
                 self.activities.append(profiler.ProfilerActivity.CUDA)
             else:
                 raise ValueError(

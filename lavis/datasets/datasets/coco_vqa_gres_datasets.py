@@ -90,7 +90,7 @@ class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
 
         self.annotation = json.load(open(ann_paths[0]))
         # select top 100cuda
-        # self.annotation = self.annotation[:4000]
+        self.annotation = self.annotation[:100]
 
         answer_list_path = ann_paths[1]
         if os.path.exists(answer_list_path):

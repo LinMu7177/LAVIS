@@ -41,6 +41,7 @@ class Blip2VicunaInstructGRES(Blip2Base):
         use_grad_checkpoint=False,
         vit_precision="fp16",
         freeze_vit=True,
+        freeze_qformer=True,
         num_query_token=32,
         llm_model="",
         prompt="",
@@ -81,6 +82,14 @@ class Blip2VicunaInstructGRES(Blip2Base):
             self.Qformer.resize_token_embeddings(len(self.tokenizer))
         self.Qformer.cls = None
 
+        if freeze_qformer:
+            for name, param in self.Qformer.named_parameters():
+                param.requires_grad = False
+            self.Qformer = self.Qformer.eval()
+            self.Qformer.train = disabled_train
+            self.query_tokens.requires_grad = False
+            logging.info("freeze Qformer")
+
         print('Loading LLAMA')
         self.llm_tokenizer = LlamaTokenizer.from_pretrained(llm_model, use_fast=False, truncation_side="left")
         self.llm_model = LlamaForCausalLM.from_pretrained(
@@ -99,8 +108,8 @@ class Blip2VicunaInstructGRES(Blip2Base):
         #     self.llm_tokenizer.eos_token, add_special_tokens=False
         # ).input_ids[0]
 
-        for name, param in self.llm_model.named_parameters():
-            param.requires_grad = False
+        # for name, param in self.llm_model.named_parameters():
+        #     param.requires_grad = False
 
         self.llm_proj = nn.Linear(
             self.Qformer.config.hidden_size, self.llm_model.config.hidden_size
@@ -115,8 +124,6 @@ class Blip2VicunaInstructGRES(Blip2Base):
         self._lemmatizer = None
 
         self.qformer_text_input = qformer_text_input
-
-        # self.gres_model = GRES_Inference()
 
     def concat_text_input_output(self, input_ids, input_atts, output_ids, output_atts):
         input_part_targets_len = []
@@ -148,8 +155,8 @@ class Blip2VicunaInstructGRES(Blip2Base):
         # print(samples["text_output"])
         # print('-----------------')
 
-        image = samples["image"].to('cuda:4')
-        focus_image = samples["focus_image"].to('cuda:4')
+        image = samples["image"].to('cuda:7')
+        focus_image = samples["focus_image"].to('cuda:7')
         
         with self.maybe_autocast():
             image_embeds = self.ln_vision(self.visual_encoder(image))
@@ -273,7 +280,7 @@ class Blip2VicunaInstructGRES(Blip2Base):
         num_beams=5,
         max_length=256,
         min_length=1,
-        top_p=0.9,
+        top_p=1,
         repetition_penalty=1.5,
         length_penalty=1,
         num_captions=1,
@@ -286,7 +293,7 @@ class Blip2VicunaInstructGRES(Blip2Base):
         else:
             prompt = self.prompt
 
-        image = samples["image"].to('cuda:4')
+        image = samples["image"].to('cuda:7')
 
         focus_image = samples["focus_image"]
 
@@ -419,6 +426,7 @@ class Blip2VicunaInstructGRES(Blip2Base):
             )
 
         outputs[outputs == 0] = 2 # convert output id 0 to 2 (eos_token_id)
+        outputs[outputs == -1] = 0
         output_text = self.llm_tokenizer.batch_decode(outputs, skip_special_tokens=True)
         output_text = [text.strip() for text in output_text]
 

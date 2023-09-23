@@ -135,3 +135,12 @@ def download_cached_file(url, check_hash=True, progress=False):
         dist.barrier()
 
     return get_cached_file_path()
+
+
+
+def is_dist_avail_and_initialized():
+    if not dist.is_available():
+        return False
+    if not dist.is_initialized():
+        return False
+    return True

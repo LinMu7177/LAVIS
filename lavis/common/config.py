@@ -406,7 +406,7 @@ def create_runner_config_validator():
         "device",
         type=str,
         choices=["cpu", "cuda"],
-        help="Device to use. Support 'cuda' or 'cpu' as for now.",
+        help="Device to use. Support 'cuda:7' or 'cpu' as for now.",
     )
     validator.add_argument(
         "world_size",
