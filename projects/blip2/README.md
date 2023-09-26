@@ -32,7 +32,7 @@ Let’s see how to use BLIP-2 models to perform zero-shot instructed image-to-te
 import torch
 from PIL import Image
 # setup device to use
-device = torch.device("cuda") if torch.cuda.is_available() else "cpu"
+device = torch.device("cuda:0") if torch.cuda.is_available() else "cpu"
 # load sample image
 raw_image = Image.open("../../docs/_static/merlion.png").convert("RGB")
 display(raw_image.resize((596, 437)))
@@ -127,7 +127,7 @@ import requests
 from transformers import Blip2Processor, Blip2ForConditionalGeneration
 import torch
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
 processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
 model = Blip2ForConditionalGeneration.from_pretrained(
@@ -159,7 +159,7 @@ img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo
 raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
 
 question = "how many dogs are in the picture?"
-inputs = processor(raw_image, question, return_tensors="pt").to("cuda", torch.float16)
+inputs = processor(raw_image, question, return_tensors="pt").to("cuda:0", torch.float16)
 
 out = model.generate(**inputs)
 print(processor.decode(out[0], skip_special_tokens=True))

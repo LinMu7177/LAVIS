@@ -82,7 +82,7 @@ def generate_caption(
                 use_nucleus_sampling=True,
                 max_length=max_length,
                 min_length=min_length,
-                top_p=0.9,
+                top_p=1.0,
             )
             captions.append(caption[0])
     else:

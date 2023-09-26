@@ -16,7 +16,7 @@ class Body(object):
         self.model = bodypose_model()
         if torch.cuda.is_available():
             self.model = self.model.cuda()
-            print('cuda:7')
+            print('cuda:0')
         model_dict = util.transfer(self.model, torch.load(model_path))
         self.model.load_state_dict(model_dict)
         self.model.eval()

@@ -8,7 +8,7 @@ model:
 
   model_type: vicuna7b
   load_finetuned: False
-  llm_model: "/mnt/local/wwx/Models/Vicuna/vicuna-7b/"
+  llama_model: "/mnt/local/wwx/Models/Vicuna/vicuna-7b/"
 
 datasets:
   coco_vqa_gres: # name of the dataset builder
@@ -41,7 +41,7 @@ run:
   min_lr: 0
   weight_decay: 0.05
   max_epoch: 1
-  batch_size_train: 1
+  batch_size_train: 48
   batch_size_eval: 1
   num_workers: 0
 
@@ -53,7 +53,7 @@ run:
   inference_method: "generate"
 
   seed: 42
-  output_dir: "/mnt/local/wwx/Output/LAVIS/GRES/VQA_Demo_FT/test/"
+  output_dir: "/mnt/local/wwx/Output/LAVIS/GRES/VQA_Add_one_layer_20000/test/"
 
   amp: False
   resume_ckpt_path: null
@@ -64,7 +64,7 @@ run:
   test_splits: ["test"]
 
   # distribution-specific
-  device: "cuda:7"
+  device: "cuda:0"
   world_size: 1
   dist_url: "env://"
   distributed: True

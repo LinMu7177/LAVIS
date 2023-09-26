@@ -47,7 +47,7 @@ run:
   evaluate: True
   test_splits: ["test"]
 
-  device: "cuda"
+  device: "cuda:0"
   world_size: 1
   dist_url: "env://"
   distributed: True

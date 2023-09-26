@@ -75,7 +75,7 @@ if __name__ == '__main__':
 
     prompt_textbox = gr.Textbox(label="Prompt:", placeholder="prompt", lines=2)
 
-    device = torch.device("cuda") if torch.cuda.is_available() else "cpu"
+    device = torch.device("cuda:0") if torch.cuda.is_available() else "cpu"
 
     print('Loading model...')
 

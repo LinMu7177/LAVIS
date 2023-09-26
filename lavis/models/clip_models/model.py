@@ -1049,7 +1049,7 @@ def list_openai_models() -> List[str]:
 
 def load_openai_model(
     name: str,
-    device: Union[str, torch.device] = "cuda" if torch.cuda.is_available() else "cpu",
+    device: Union[str, torch.device] = "cuda:0" if torch.cuda.is_available() else "cpu",
     jit=True,
 ):
     """Load a CLIP model
@@ -1125,7 +1125,7 @@ def load_openai_model(
         for graph in graphs:
             for node in graph.findAllNodes("prim::Constant"):
                 if "value" in node.attributeNames() and str(node["value"]).startswith(
-                    "cuda"
+                    "cuda:0"
                 ):
                     node.copyAttributes(device_node)
 

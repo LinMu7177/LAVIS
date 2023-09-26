@@ -188,7 +188,7 @@ Let’s see how to use models in LAVIS to perform inference on example data. We 
 import torch
 from PIL import Image
 # setup device to use
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # load sample image
 raw_image = Image.open("docs/_static/merlion.png").convert("RGB")
 ```
@@ -203,7 +203,7 @@ pre-trained model with its preprocessors (transforms), accessed via ``load_model
 ```python
 import torch
 from lavis.models import load_model_and_preprocess
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # loads BLIP caption base model, with finetuned checkpoints on MSCOCO captioning dataset.
 # this also loads the associated image processors
 model, vis_processors, _ = load_model_and_preprocess(name="blip_caption", model_type="base_coco", is_eval=True, device=device)

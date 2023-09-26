@@ -105,6 +105,12 @@ class RunnerBase:
             weight_decay = self.config.run_cfg.get("weight_decay", 0.05)
             optim_params = self._model.get_optimizer_params(weight_decay,lr_scale)
 
+            # Print the parameters that need to be trained
+            for n, p in self.model.named_parameters():
+                if not p.requires_grad:
+                    continue  # frozen weights
+                print(n)
+
             num_parameters = 0
             for p_group in optim_params:
                 for p in p_group["params"]:
@@ -263,7 +269,7 @@ class RunnerBase:
 
     @property
     def cuda_enabled(self):
-        return self.device.type == "cuda"
+        return self.device.type == "cuda:0"
 
     @property
     def max_epoch(self):

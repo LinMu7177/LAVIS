@@ -61,7 +61,7 @@ run:
   # test_splits: ["test"]
   k_test: 128
 
-  device: "cuda"
+  device: "cuda:0"
   world_size: 1
   dist_url: "env://"
   distributed: True

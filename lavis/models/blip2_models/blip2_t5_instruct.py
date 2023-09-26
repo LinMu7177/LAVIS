@@ -284,7 +284,7 @@ class Blip2T5Instruct(Blip2Base):
         num_beams=5,
         max_length=256,
         min_length=1,
-        top_p=0.9,
+        top_p=1.0,
         repetition_penalty=1.5,
         length_penalty=1.0,
         num_captions=1,

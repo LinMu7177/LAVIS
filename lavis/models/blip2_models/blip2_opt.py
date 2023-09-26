@@ -169,7 +169,7 @@ class Blip2OPT(Blip2Base):
         num_beams=5,
         max_length=30,
         min_length=1,
-        top_p=0.9,
+        top_p=1.0,
         repetition_penalty=1.0,
         length_penalty=1.0,
         num_captions=1,

@@ -29,6 +29,8 @@ from lavis.processors import *
 from lavis.runners.runner_base import RunnerBase
 from lavis.tasks import *
 
+import os
+os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Training")

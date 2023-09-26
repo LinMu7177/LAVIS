@@ -44,7 +44,7 @@ run:
   test_splits: ["test"]
 
   # distribution-specific
-  device: "cuda"
+  device: "cuda:0"
   world_size: 1
   dist_url: "env://"
   distributed: True

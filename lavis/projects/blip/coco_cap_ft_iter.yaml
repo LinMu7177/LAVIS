@@ -52,7 +52,7 @@ run:
   train_splits: ["train"]
   valid_splits: ["val", "test"]
 
-  device: "cuda"
+  device: "cuda:0"
   world_size: 1
   dist_url: "env://"
   distributed: True

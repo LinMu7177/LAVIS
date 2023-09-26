@@ -33,7 +33,7 @@ We first load a sample image from local.
 import torch
 from PIL import Image
 # setup device to use
-device = torch.device("cuda") if torch.cuda.is_available() else "cpu"
+device = torch.device("cuda:0") if torch.cuda.is_available() else "cpu"
 # load sample image
 raw_image = Image.open("../../docs/_static/Confusing-Pictures.jpg").convert("RGB")
 display(raw_image.resize((596, 437)))
@@ -75,7 +75,7 @@ Output: "A man in a yellow shirt is standing on the back of a yellow SUV parked 
 
 Use nucleus sampling instead of beam search.
 ```python
-model.generate({"image": image, "prompt":"Describe the image in details."}, use_nucleus_sampling=True, top_p=0.9, temperature=1)
+model.generate({"image": image, "prompt":"Describe the image in details."}, use_nucleus_sampling=True, top_p=1.0, temperature=1)
 ```
 ```
 Output: "In the city street, a man in a yellow shirt is ironing clothes on top of his car, which is parked on the side of the road. He is surrounded by other vehicles, including a taxi cab and a truck, adding to the bustling atmosphere of the urban environment. The man's task requires him to balance precariously on the back of his car as he works on his laundry, highlighting the creativity and resourcefulness of New Yorkers in their daily lives."

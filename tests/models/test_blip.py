@@ -15,7 +15,7 @@ from lavis.models import load_model, load_model_and_preprocess
 from PIL import Image
 
 # setup device to use
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # load sample image
 raw_image = Image.open("docs/_static/merlion.png").convert("RGB")
