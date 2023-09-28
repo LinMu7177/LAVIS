@@ -114,16 +114,16 @@ class RunnerBase:
             num_parameters = 0
             for p_group in optim_params:
                 for p in p_group["params"]:
-                    num_parameters += p.data.nelement()    
-            logging.info("number of trainable parameters: {}".format(num_parameters))      
-                  
+                    num_parameters += p.data.nelement()
+            logging.info("number of trainable parameters: {}".format(num_parameters))
+
             beta2 = self.config.run_cfg.get("beta2", 0.999)
 
             self._optimizer = torch.optim.AdamW(
                 optim_params,
                 lr=float(self.config.run_cfg.init_lr),
                 betas=(0.9, beta2),
-            )    
+            )
         return self._optimizer
 
     @property
@@ -269,7 +269,8 @@ class RunnerBase:
 
     @property
     def cuda_enabled(self):
-        return self.device.type == "cuda:0"
+        # return self.device.type == "cuda:0"
+        return self.device.type == self.device
 
     @property
     def max_epoch(self):

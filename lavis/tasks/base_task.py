@@ -212,11 +212,11 @@ class BaseTask:
 
             samples = next(data_loader)
 
-            # cuda:1
-            # samples['image'].to('cuda:0')
-            # samples['focus_image'].to('cuda:0')
-            # samples['weight'].to('cuda:0')
-            # samples['n_answers'].to('cuda:0')
+            samples['image'] = samples['image'].to(model.device)
+            if type(model).__name__ == 'Blip2VicunaInstructGRES':
+                samples['focus_image'] = samples['focus_image'].to(model.device)
+            samples['weight'] = samples['weight'].to(model.device)
+            samples['n_answers'] = samples['n_answers'].to(model.device)
 
             samples = prepare_sample(samples, cuda_enabled=cuda_enabled)
             samples.update(

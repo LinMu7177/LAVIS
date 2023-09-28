@@ -4,14 +4,14 @@
  # For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 
 model:
-  arch: blip2_vicuna_instruct_gres
+  arch: blip2_vicuna_instruct
 
   model_type: vicuna7b
   load_finetuned: False
   llm_model: "/mnt/local/wwx/Models/Vicuna/vicuna-7b/"
 
 datasets:
-  coco_vqa_gres: # name of the dataset builder
+  coco_vqa: # name of the dataset builder
     vis_processor:
         train:
           name: "blip_image_train"
@@ -41,8 +41,8 @@ run:
   min_lr: 0
   weight_decay: 0.05
   max_epoch: 1
-  batch_size_train: 64
-  batch_size_eval: 32
+  batch_size_train: 4
+  batch_size_eval: 4
   num_workers: 0
   prompt: "Question: {} Short answer:"
 
@@ -54,7 +54,7 @@ run:
   inference_method: "generate"
 
   seed: 42
-  output_dir: "/mnt/local/wwx/Output/LAVIS/add_GRES_5000_change_padding_side/0928"
+  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBIP/train_5000/0927"
 
   amp: False
   resume_ckpt_path: null
@@ -65,7 +65,7 @@ run:
   test_splits: ["test"]
 
   # distribution-specific
-  device: "cuda:7"
+  device: "cuda:1"
   world_size: 1
   dist_url: "env://"
   distributed: True
