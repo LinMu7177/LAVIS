@@ -49,6 +49,7 @@ class Blip2VicunaInstruct(Blip2Base):
         self.visual_encoder, self.ln_vision = self.init_vision_encoder(
             vit_model, img_size, drop_path_rate, use_grad_checkpoint, vit_precision
         )
+
         if freeze_vit:
             for name, param in self.visual_encoder.named_parameters():
                 param.requires_grad = False
@@ -87,10 +88,7 @@ class Blip2VicunaInstruct(Blip2Base):
 
         print('Loading LLAMA')
         self.llm_tokenizer = LlamaTokenizer.from_pretrained(llm_model, use_fast=False, truncation_side="left")
-        self.llm_tokenizer.padding_side = "left"
-        # maybe error
-        # self.llm_tokenizer.pad_token = self.llm_tokenizer.eos_token
-
+        # self.llm_tokenizer.padding_side = "left"
         self.llm_model = LlamaForCausalLM.from_pretrained(
             llm_model, torch_dtype=torch.float16
         )
@@ -119,6 +117,10 @@ class Blip2VicunaInstruct(Blip2Base):
         )
 
         self.max_txt_len = max_txt_len
+        self.max_output_txt_len = max_output_txt_len
+        self.prompt = prompt
+        prompt_tokens = self.llm_tokenizer(self.prompt, return_tensors="pt")
+        self.prompt_length = prompt_tokens.attention_mask.sum(1)
 
         self._lemmatizer = None
 
@@ -152,18 +154,20 @@ class Blip2VicunaInstruct(Blip2Base):
         return llm_tokens, input_part_targets_len
 
     def forward(self, samples):
-
-        self.llm_tokenizer.padding_side = "right"
-        answers = self.llm_tokenizer(
-            [t + self.llm_tokenizer.eos_token for t in samples['answer']],
-            padding="longest",
-            return_tensors="pt",
-        ).to(self.device)
-
+        # print('-----------------')
+        # print(samples["text_input"])
+        # print(samples["text_output"])
+        # print(samples["image"].shape)
+        # print('-----------------')
         device = samples["image"].device
-        self.llm_tokenizer.padding_side = "left"
-        prompt = self.prompt_wrap(samples, self.prompt)
         image = samples["image"]
+        prompt = self.prompt_wrap(samples, self.prompt)
+
+        with self.maybe_autocast():
+            image_embeds = self.ln_vision(self.visual_encoder(image))
+        image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(device)
+
+        bs = image.size(0)
 
         query_tokens = self.query_tokens.expand(image.size(0), -1, -1)
 
@@ -177,10 +181,6 @@ class Blip2VicunaInstruct(Blip2Base):
         query_atts = torch.ones(query_tokens.size()[:-1], dtype=torch.long).to(device)
         Qformer_atts = torch.cat([query_atts, text_Qformer.attention_mask],dim=1)
 
-        with self.maybe_autocast():
-            image_embeds = self.ln_vision(self.visual_encoder(image))
-            image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(device)
-
         query_output = self.Qformer.bert(
             text_Qformer.input_ids,
             attention_mask=Qformer_atts,
@@ -190,9 +190,11 @@ class Blip2VicunaInstruct(Blip2Base):
             return_dict=True,
         )
 
-        query_llm = self.llm_proj(query_output.last_hidden_state[:, :query_tokens.size(1), :])
-        atts_llm = torch.ones(query_llm.size()[:-1], dtype=torch.long).to(device)
+        inputs_llm = self.llm_proj(query_output.last_hidden_state[:,:query_tokens.size(1),:])
+        atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(image.device)
 
+        self.llm_tokenizer.padding_side = "right"
+        self.llm_tokenizer.truncation_side = 'left'
         text_input_tokens = self.llm_tokenizer(
             prompt,
             return_tensors="pt",
@@ -201,36 +203,21 @@ class Blip2VicunaInstruct(Blip2Base):
             max_length=self.max_txt_len,
         ).to(device)
 
-        prompt_llm_tokens = {"input_ids": [], "attention_mask": []}
-        query_llm_embs = {"input_embs": [], "attention_mask": []}
-
-        for b, n in enumerate(samples["n_answers"]):
-            prompt_llm_tokens['input_ids'] += [text_input_tokens.input_ids[b]] * n
-            prompt_llm_tokens['attention_mask'] += [text_input_tokens.attention_mask[b]] * n
-            query_llm_embs['input_embs'] += [query_llm[b]] * n
-            query_llm_embs['attention_mask'] += [atts_llm[b]] * n
-
-        prompt_llm_tokens['input_ids'] = torch.stack(prompt_llm_tokens['input_ids'])
-        prompt_llm_tokens['attention_mask'] = torch.stack(prompt_llm_tokens['attention_mask'])
-        query_llm_embs['input_embs'] = torch.stack(query_llm_embs['input_embs'])
-        query_llm_embs['attention_mask'] = torch.stack(query_llm_embs['attention_mask'])
-
-        # prompt_llm_embeds = self.llm_model.get_input_embeddings()(prompt_llm_tokens['input_ids'])
-        # inputs_embeds = torch.cat([query_llm_embs['input_embs'], prompt_llm_embeds], dim=1)
-        # attention_mask = torch.cat([query_llm_embs['attention_mask'], prompt_llm_tokens['attention_mask']], dim=1)
-
-
+        self.llm_tokenizer.truncation_side = 'right'
+        text_output_tokens = self.llm_tokenizer(
+            [t + self.llm_tokenizer.eos_token for t in samples['answer']],
+            return_tensors="pt",
+            padding="longest",
+            truncation=True,
+            max_length=self.max_output_txt_len,
+        ).to(image.device)
 
         llm_tokens, input_part_targets_len = self.concat_text_input_output(
-            prompt_llm_tokens['input_ids'],
-            prompt_llm_tokens['attention_mask'],
-            answers.input_ids,
-            answers.attention_mask,
+            text_input_tokens.input_ids,
+            text_input_tokens.attention_mask,
+            text_output_tokens.input_ids,
+            text_output_tokens.attention_mask,
         )
-
-        llm_embeds = self.llm_model.get_input_embeddings()(llm_tokens['input_ids'])
-        inputs_embeds = torch.cat([query_llm_embs['input_embs'], llm_embeds], dim=1)
-        attention_mask = torch.cat([query_llm_embs['attention_mask'], llm_tokens['attention_mask']], dim=1)
 
         # do not apply loss to the padding
         targets = llm_tokens['input_ids'].masked_fill(
@@ -243,9 +230,13 @@ class Blip2VicunaInstruct(Blip2Base):
 
         # do not apply loss to the query tokens
         empty_targets = (
-            torch.ones(query_llm_embs['attention_mask'].size(), dtype=torch.long).to(image.device).fill_(-100)
+            torch.ones(atts_llm.size(), dtype=torch.long).to(image.device).fill_(-100)
         )
         targets = torch.cat([empty_targets, targets], dim=1)
+
+        inputs_embeds = self.llm_model.get_input_embeddings()(llm_tokens['input_ids'])
+        inputs_embeds = torch.cat([inputs_llm, inputs_embeds], dim=1)
+        attention_mask = torch.cat([atts_llm, llm_tokens['attention_mask']], dim=1)
 
         with self.maybe_autocast():
             outputs = self.llm_model(
@@ -674,12 +665,6 @@ class Blip2VicunaInstruct(Blip2Base):
             apply_lemmatizer=apply_lemmatizer,
             qformer_text_input=qformer_text_input,
         )
-
-        # if qformer_text_input:
-        #     # Hard-coded to load from BLIP-2 stage-1 pre-trained model (not ideal)
-        #     model.load_from_pretrained(
-        #         url_or_filename="https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained.pth"
-        #     )
 
         model.load_checkpoint_from_config(cfg)
 
