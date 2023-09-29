@@ -87,6 +87,7 @@ class Blip2VicunaInstruct(Blip2Base):
 
         print('Loading LLAMA')
         self.llm_tokenizer = LlamaTokenizer.from_pretrained(llm_model, use_fast=False, truncation_side="left")
+        self.llm_tokenizer.padding_side = "left"
         # maybe error
         # self.llm_tokenizer.pad_token = self.llm_tokenizer.eos_token
 
@@ -151,16 +152,23 @@ class Blip2VicunaInstruct(Blip2Base):
         return llm_tokens, input_part_targets_len
 
     def forward(self, samples):
+
+        self.llm_tokenizer.padding_side = "right"
+        answers = self.llm_tokenizer(
+            [t + self.llm_tokenizer.eos_token for t in samples['answer']],
+            padding="longest",
+            return_tensors="pt",
+        ).to(self.device)
+
         device = samples["image"].device
         self.llm_tokenizer.padding_side = "left"
-
         prompt = self.prompt_wrap(samples, self.prompt)
-        image = samples["image"].to(device)
+        image = samples["image"]
 
         query_tokens = self.query_tokens.expand(image.size(0), -1, -1)
 
         text_Qformer = self.tokenizer(
-            prompt,
+            samples['text_input'],
             padding='longest',
             truncation=True,
             max_length=self.max_txt_len,
@@ -182,31 +190,47 @@ class Blip2VicunaInstruct(Blip2Base):
             return_dict=True,
         )
 
-        inputs_llm = self.llm_proj(query_output.last_hidden_state[:, :query_tokens.size(1), :])
-        atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(device)
+        query_llm = self.llm_proj(query_output.last_hidden_state[:, :query_tokens.size(1), :])
+        atts_llm = torch.ones(query_llm.size()[:-1], dtype=torch.long).to(device)
 
         text_input_tokens = self.llm_tokenizer(
-            samples['text_input'],
+            prompt,
             return_tensors="pt",
             padding="longest",
             truncation=True,
             max_length=self.max_txt_len,
         ).to(device)
 
-        text_output_tokens = self.llm_tokenizer(
-            [t + self.llm_tokenizer.eos_token for t in samples['answer']],
-            return_tensors="pt",
-            padding="longest",
-            truncation=True,
-            max_length=self.max_output_txt_len,
-        ).to(device)
+        prompt_llm_tokens = {"input_ids": [], "attention_mask": []}
+        query_llm_embs = {"input_embs": [], "attention_mask": []}
+
+        for b, n in enumerate(samples["n_answers"]):
+            prompt_llm_tokens['input_ids'] += [text_input_tokens.input_ids[b]] * n
+            prompt_llm_tokens['attention_mask'] += [text_input_tokens.attention_mask[b]] * n
+            query_llm_embs['input_embs'] += [query_llm[b]] * n
+            query_llm_embs['attention_mask'] += [atts_llm[b]] * n
+
+        prompt_llm_tokens['input_ids'] = torch.stack(prompt_llm_tokens['input_ids'])
+        prompt_llm_tokens['attention_mask'] = torch.stack(prompt_llm_tokens['attention_mask'])
+        query_llm_embs['input_embs'] = torch.stack(query_llm_embs['input_embs'])
+        query_llm_embs['attention_mask'] = torch.stack(query_llm_embs['attention_mask'])
+
+        # prompt_llm_embeds = self.llm_model.get_input_embeddings()(prompt_llm_tokens['input_ids'])
+        # inputs_embeds = torch.cat([query_llm_embs['input_embs'], prompt_llm_embeds], dim=1)
+        # attention_mask = torch.cat([query_llm_embs['attention_mask'], prompt_llm_tokens['attention_mask']], dim=1)
+
+
 
         llm_tokens, input_part_targets_len = self.concat_text_input_output(
-            text_input_tokens.input_ids,
-            text_input_tokens.attention_mask,
-            text_output_tokens.input_ids,
-            text_output_tokens.attention_mask,
+            prompt_llm_tokens['input_ids'],
+            prompt_llm_tokens['attention_mask'],
+            answers.input_ids,
+            answers.attention_mask,
         )
+
+        llm_embeds = self.llm_model.get_input_embeddings()(llm_tokens['input_ids'])
+        inputs_embeds = torch.cat([query_llm_embs['input_embs'], llm_embeds], dim=1)
+        attention_mask = torch.cat([query_llm_embs['attention_mask'], llm_tokens['attention_mask']], dim=1)
 
         # do not apply loss to the padding
         targets = llm_tokens['input_ids'].masked_fill(
@@ -219,13 +243,9 @@ class Blip2VicunaInstruct(Blip2Base):
 
         # do not apply loss to the query tokens
         empty_targets = (
-            torch.ones(atts_llm.size(), dtype=torch.long).to(image.device).fill_(-100)
+            torch.ones(query_llm_embs['attention_mask'].size(), dtype=torch.long).to(image.device).fill_(-100)
         )
         targets = torch.cat([empty_targets, targets], dim=1)
-
-        inputs_embeds = self.llm_model.get_input_embeddings()(llm_tokens['input_ids'])
-        inputs_embeds = torch.cat([inputs_llm, inputs_embeds], dim=1)
-        attention_mask = torch.cat([atts_llm, llm_tokens['attention_mask']], dim=1)
 
         with self.maybe_autocast():
             outputs = self.llm_model(
@@ -254,7 +274,7 @@ class Blip2VicunaInstruct(Blip2Base):
             temperature=1,
     ):
         device = samples["image"].device
-        self.llm_tokenizer.padding_side = "left"
+        # self.llm_tokenizer.padding_side = "left"
 
         if "prompt" in samples.keys():
             prompt = samples["prompt"]
@@ -400,7 +420,7 @@ class Blip2VicunaInstruct(Blip2Base):
             candidates,
             n_segments=1,
     ):
-        self.llm_tokenizer.padding_side = "left"
+        # self.llm_tokenizer.padding_side = "left"
 
         # If candidates is a list of lists, each sample has its candidates, then we need to iterate one by one
         if type(candidates[0]) == list:

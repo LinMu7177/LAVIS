@@ -28,8 +28,8 @@ datasets:
 run:
   task: vqa
   # optimization-specific
-  batch_size_train: 4
-  batch_size_eval: 4
+  batch_size_train: 16
+  batch_size_eval: 16
   num_workers: 0
 
   # inference-specific
@@ -40,13 +40,13 @@ run:
   prompt: "Question: {} Short answer:"
 
   seed: 42
-  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBLIP/VQAEval/test"
-
+  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBLIP/VQAEval/test_debug"
+  # output_dir: "/root/autodl-tmp/wwx/Output/LAVIS/InstructBLIP/VQAEval/test_debug"
   evaluate: True
   test_splits: ["val"]
 
   # distribution-specific
-  device: "cuda:2"
+  device: "cuda"
   world_size: 1
   dist_url: "env://"
   distributed: True

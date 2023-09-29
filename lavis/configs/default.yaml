@@ -8,3 +8,4 @@ env:
   # cache_root: "cache"
   # For internal use with persistent storage
   cache_root: "/mnt/local/wwx/LLM_Data/Lavis_V2"
+  # cache_root: "/root/autodl-tmp/wwx/LLM_Data/Lavis"
