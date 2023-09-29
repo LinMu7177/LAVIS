@@ -90,7 +90,7 @@ class VQA:
 
         if len(imgIds) == len(quesTypes) == len(ansTypes) == 0:
             anns = self.dataset["annotations"]
-            anns = self.dataset["annotations"][:500]
+            # anns = self.dataset["annotations"][:500]
         else:
             if not len(imgIds) == 0:
                 anns = sum(

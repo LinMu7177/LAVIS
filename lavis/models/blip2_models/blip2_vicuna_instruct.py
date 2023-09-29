@@ -43,6 +43,8 @@ class Blip2VicunaInstruct(Blip2Base):
     ):
         super().__init__()
         transformers_version = version.parse(transformers.__version__)
+        assert transformers_version >= version.parse("4.28"), "BLIP-2 Vicuna requires transformers>=4.28"
+
         self.tokenizer = self.init_tokenizer(truncation_side="left")
 
         print('Loading VIT')
@@ -88,7 +90,6 @@ class Blip2VicunaInstruct(Blip2Base):
 
         print('Loading LLAMA')
         self.llm_tokenizer = LlamaTokenizer.from_pretrained(llm_model, use_fast=False, truncation_side="left")
-        # self.llm_tokenizer.padding_side = "left"
         self.llm_model = LlamaForCausalLM.from_pretrained(
             llm_model, torch_dtype=torch.float16
         )
@@ -172,7 +173,7 @@ class Blip2VicunaInstruct(Blip2Base):
         query_tokens = self.query_tokens.expand(image.size(0), -1, -1)
 
         text_Qformer = self.tokenizer(
-            samples['text_input'],
+            prompt,
             padding='longest',
             truncation=True,
             max_length=self.max_txt_len,
@@ -191,7 +192,7 @@ class Blip2VicunaInstruct(Blip2Base):
         )
 
         inputs_llm = self.llm_proj(query_output.last_hidden_state[:,:query_tokens.size(1),:])
-        atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(image.device)
+        atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(device)
 
         self.llm_tokenizer.padding_side = "right"
         self.llm_tokenizer.truncation_side = 'left'
@@ -265,7 +266,7 @@ class Blip2VicunaInstruct(Blip2Base):
             temperature=1,
     ):
         device = samples["image"].device
-        # self.llm_tokenizer.padding_side = "left"
+        self.llm_tokenizer.padding_side = "left"
 
         if "prompt" in samples.keys():
             prompt = samples["prompt"]
@@ -276,10 +277,10 @@ class Blip2VicunaInstruct(Blip2Base):
 
         bs = image.size(0)
 
-        if isinstance(prompt, str):
-            prompt = [prompt] * bs
-        else:
-            assert len(prompt) == bs, "The number of prompts must be equal to the batch size."
+        # if isinstance(prompt, str):
+        #     prompt = [prompt] * bs
+        # else:
+        #     assert len(prompt) == bs, "The number of prompts must be equal to the batch size."
 
         # For TextCaps
         if "ocr_tokens" in samples.keys() and "{}" in prompt[0]:
@@ -411,7 +412,7 @@ class Blip2VicunaInstruct(Blip2Base):
             candidates,
             n_segments=1,
     ):
-        # self.llm_tokenizer.padding_side = "left"
+        self.llm_tokenizer.padding_side = "left"
 
         # If candidates is a list of lists, each sample has its candidates, then we need to iterate one by one
         if type(candidates[0]) == list:

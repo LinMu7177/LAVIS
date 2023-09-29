@@ -27,7 +27,7 @@ class BaseDataset(Dataset):
             self.annotation.extend(json.load(open(ann_path, "r")))
 
         # training data demo
-        self.annotation = self.annotation[:20000]
+        # self.annotation = self.annotation[:1000]
 
         self.vis_processor = vis_processor
         self.text_processor = text_processor
