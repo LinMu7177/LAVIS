@@ -215,8 +215,8 @@ class BaseTask:
             samples['image'] = samples['image'].to(model.device)
             if type(model).__name__ == 'Blip2VicunaInstructGRES':
                 samples['focus_image'] = samples['focus_image'].to(model.device)
-            samples['weight'] = samples['weight'].to(model.device)
-            samples['n_answers'] = samples['n_answers'].to(model.device)
+            # samples['weight'] = samples['weight'].to(model.device)
+            # samples['n_answers'] = samples['n_answers'].to(model.device)
 
             samples = prepare_sample(samples, cuda_enabled=cuda_enabled)
             samples.update(

@@ -14,6 +14,8 @@ from PIL import Image
 from lavis.datasets.datasets.vqa_datasets import VQADataset, VQAEvalDataset
 
 from collections import OrderedDict
+import torch
+import numpy as np
 
 from ReLA2.Inference import GRES_Inference
 
@@ -67,15 +69,37 @@ class COCOVQAGRESDataset(VQADataset, __DisplMixin):
             else:
                 answer_weight[answer] = 1 / len(ann["answer"])
 
-        answers = list(answer_weight.keys())
-        weights = list(answer_weight.values())
+        # answers = list(answer_weight.keys())
+        # weights = list(answer_weight.values())
+        best_answer = max(answer_weight, key=answer_weight.get)
 
         return {
             "image": image,
             "focus_image": focus_image,
             "text_input": question,
-            "answers": answers,
-            "weights": weights,
+            "text_output": best_answer,
+
+        }
+
+    def collater(self, samples):
+        image_list, focus_image_list, question_list, answer_list = [], [], [], [],
+
+        for sample in samples:
+            image_list.append(sample["image"])
+
+            focus_image_list.append(sample["focus_image"])
+
+            question_list.append(sample["text_input"])
+
+            answers = sample["text_output"]
+
+            answer_list.append(answers)
+
+        return {
+            "image": torch.stack(image_list, dim=0),
+            "focus_image": torch.stack(focus_image_list, dim=0),
+            "text_input": question_list,
+            "text_output": answer_list,
         }
 
 
@@ -89,7 +113,8 @@ class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
         self.vis_root = vis_root
 
         self.annotation = json.load(open(ann_paths[0]))
-        # select top 100
+
+        # Data sampling
         # self.annotation = self.annotation[:500]
 
         answer_list_path = ann_paths[1]

@@ -42,12 +42,15 @@ class Blip2VicunaInstructGRES(Blip2Base):
     ):
         super().__init__()
         transformers_version = version.parse(transformers.__version__)
+        assert transformers_version >= version.parse("4.28"), "BLIP-2 Vicuna requires transformers>=4.28"
+
         self.tokenizer = self.init_tokenizer(truncation_side="left")
 
         print('Loading VIT')
         self.visual_encoder, self.ln_vision = self.init_vision_encoder(
             vit_model, img_size, drop_path_rate, use_grad_checkpoint, vit_precision
         )
+
         if freeze_vit:
             for name, param in self.visual_encoder.named_parameters():
                 param.requires_grad = False
@@ -86,13 +89,13 @@ class Blip2VicunaInstructGRES(Blip2Base):
 
         print('Loading LLAMA')
         self.llm_tokenizer = LlamaTokenizer.from_pretrained(llm_model, use_fast=False, truncation_side="left")
-        # maybe error
-        # self.llm_tokenizer.pad_token = self.llm_tokenizer.eos_token
-
         self.llm_model = LlamaForCausalLM.from_pretrained(
             llm_model, torch_dtype=torch.float16
         )
 
+        for name, param in self.llm_model.named_parameters():
+            param.requires_grad = False
+        print('Loading LLAMA Done')
         self.llm_tokenizer.add_special_tokens({'pad_token': '[PAD]'})
         self.llm_tokenizer.add_special_tokens({'bos_token': '</s>'})
         self.llm_tokenizer.add_special_tokens({'eos_token': '</s>'})
@@ -120,6 +123,10 @@ class Blip2VicunaInstructGRES(Blip2Base):
         )
 
         self.max_txt_len = max_txt_len
+        self.max_output_txt_len = max_output_txt_len
+        self.prompt = prompt
+        prompt_tokens = self.llm_tokenizer(self.prompt, return_tensors="pt")
+        self.prompt_length = prompt_tokens.attention_mask.sum(1)
 
         self._lemmatizer = None
 
@@ -154,10 +161,15 @@ class Blip2VicunaInstructGRES(Blip2Base):
 
     def forward(self, samples):
         device = samples["image"].device
-
+        image = samples["image"]
         prompt = self.prompt_wrap(samples, self.prompt)
-        image = samples["image"].to(device)
         focus_image = samples["focus_image"].to(device)
+
+        with self.maybe_autocast():
+            image_embeds = self.ln_vision(self.visual_encoder(image))
+            focus_image_embeds = self.ln_vision(self.visual_encoder(focus_image))
+        image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(device)
+        focus_image_atts = torch.ones(focus_image_embeds.size()[:-1], dtype=torch.long).to(device)
 
         query_tokens = self.query_tokens.expand(image.size(0), -1, -1)
 
@@ -170,12 +182,6 @@ class Blip2VicunaInstructGRES(Blip2Base):
         ).to(device)
         query_atts = torch.ones(query_tokens.size()[:-1], dtype=torch.long).to(device)
         Qformer_atts = torch.cat([query_atts, text_Qformer.attention_mask],dim=1)
-
-        with self.maybe_autocast():
-            image_embeds = self.ln_vision(self.visual_encoder(image))
-            focus_image_embeds = self.ln_vision(self.visual_encoder(focus_image))
-            image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(device)
-            focus_image_atts = torch.ones(focus_image_embeds.size()[:-1], dtype=torch.long).to(device)
 
         query_output = self.Qformer.bert(
             text_Qformer.input_ids,
@@ -200,19 +206,19 @@ class Blip2VicunaInstructGRES(Blip2Base):
         fusion_input_llm = self.context_and_focus_proj(torch.cat([inputs_llm, focus_inputs_llm], dim=-1))
         fusion_atts_llm = torch.ones(fusion_input_llm.size()[:-1], dtype=torch.long).to(device)
 
-        self.llm_tokenizer.padding_side = "left"
-        # self.llm_tokenizer.padding_side = "right"
-        # self.llm_tokenizer.truncation_side = 'left'
+        self.llm_tokenizer.padding_side = "right"
+        self.llm_tokenizer.truncation_side = 'left'
         text_input_tokens = self.llm_tokenizer(
-            samples['text_input'],
+            prompt,
             return_tensors="pt",
             padding="longest",
             truncation=True,
             max_length=self.max_txt_len,
         ).to(device)
 
+        self.llm_tokenizer.truncation_side = 'right'
         text_output_tokens = self.llm_tokenizer(
-            [t + self.llm_tokenizer.eos_token for t in samples['answer']],
+            [t + self.llm_tokenizer.eos_token for t in samples['text_output']],
             return_tensors="pt",
             padding="longest",
             truncation=True,
@@ -240,7 +246,6 @@ class Blip2VicunaInstructGRES(Blip2Base):
             torch.ones([fusion_atts_llm.shape[0], fusion_atts_llm.shape[1]],
                        dtype=torch.long).to(device).fill_(-100)
         )
-
         targets = torch.cat([empty_targets, targets], dim=1)
 
         inputs_embeds = self.llm_model.get_input_embeddings()(llm_tokens['input_ids'])
@@ -286,10 +291,10 @@ class Blip2VicunaInstructGRES(Blip2Base):
 
         bs = image.size(0)
 
-        if isinstance(prompt, str):
-            prompt = [prompt] * bs
-        else:
-            assert len(prompt) == bs, "The number of prompts must be equal to the batch size."
+        # if isinstance(prompt, str):
+        #     prompt = [prompt] * bs
+        # else:
+        #     assert len(prompt) == bs, "The number of prompts must be equal to the batch size."
 
         # For TextCaps
         if "ocr_tokens" in samples.keys() and "{}" in prompt[0]:
@@ -331,10 +336,7 @@ class Blip2VicunaInstructGRES(Blip2Base):
         )
 
         inputs_llm = self.llm_proj(query_output.last_hidden_state[:,:query_tokens.size(1),:])
-        # atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(device)
-
         focus_inputs_llm = self.llm_proj(focus_query_output.last_hidden_state[:, :query_tokens.size(1), :])
-        # focus_atts_llm = torch.ones(focus_inputs_llm.size()[:-1], dtype=torch.long).to(device)
 
         fusion_input_llm = self.context_and_focus_proj(torch.cat([inputs_llm, focus_inputs_llm], dim=-1))
         fusion_atts_llm = torch.ones(fusion_input_llm.size()[:-1], dtype=torch.long).to(device)
@@ -706,10 +708,10 @@ class Blip2VicunaInstructGRES(Blip2Base):
 
         model.load_checkpoint_from_config(cfg)
 
-        ckpt_path = cfg.get("ckpt", "")  # load word_embeddingsights of MiniGPT-4
-        if ckpt_path:
-            print("Load BLIP2-LLM Checkpoint: {}".format(ckpt_path))
-            ckpt = torch.load(ckpt_path, map_location="cpu")
-            msg = model.load_state_dict(ckpt['model'], strict=False)
+        # ckpt_path = cfg.get("ckpt", "")  # load word_embeddingsights of MiniGPT-4
+        # if ckpt_path:
+        #     print("Load BLIP2-LLM Checkpoint: {}".format(ckpt_path))
+        #     ckpt = torch.load(ckpt_path, map_location="cpu")
+        #     msg = model.load_state_dict(ckpt['model'], strict=False)
 
         return model

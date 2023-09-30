@@ -28,9 +28,7 @@ class VQADataset(BaseDataset):
             if "focus_image" in sample.keys():
                 focus_image_list.append(sample["focus_image"])
             question_list.append(sample["text_input"])
-
-            weight_list.extend(sample["weights"])
-
+            # weight_list.extend(sample["weights"])
             answers = sample["answers"]
 
             answer_list.extend(answers)

@@ -15,7 +15,6 @@ from lavis.models.blip2_models.blip2 import Blip2Base, disabled_train
 from transformers import LlamaTokenizer
 from lavis.models.blip2_models.modeling_llama import LlamaForCausalLM
 
-
 @registry.register_model("blip2_vicuna_instruct")
 class Blip2VicunaInstruct(Blip2Base):
 
@@ -168,8 +167,6 @@ class Blip2VicunaInstruct(Blip2Base):
             image_embeds = self.ln_vision(self.visual_encoder(image))
         image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(device)
 
-        bs = image.size(0)
-
         query_tokens = self.query_tokens.expand(image.size(0), -1, -1)
 
         text_Qformer = self.tokenizer(
@@ -206,12 +203,12 @@ class Blip2VicunaInstruct(Blip2Base):
 
         self.llm_tokenizer.truncation_side = 'right'
         text_output_tokens = self.llm_tokenizer(
-            [t + self.llm_tokenizer.eos_token for t in samples['answer']],
+            [t + self.llm_tokenizer.eos_token for t in samples['text_output']],
             return_tensors="pt",
             padding="longest",
             truncation=True,
             max_length=self.max_output_txt_len,
-        ).to(image.device)
+        ).to(device)
 
         llm_tokens, input_part_targets_len = self.concat_text_input_output(
             text_input_tokens.input_ids,
@@ -310,7 +307,6 @@ class Blip2VicunaInstruct(Blip2Base):
             encoder_attention_mask=image_atts,
             return_dict=True,
         )
-
 
         inputs_llm = self.llm_proj(query_output.last_hidden_state[:, :query_tokens.size(1), :])
         atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(image.device)
