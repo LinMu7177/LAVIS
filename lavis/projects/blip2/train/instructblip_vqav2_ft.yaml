@@ -43,9 +43,9 @@ run:
   min_lr: 0
   weight_decay: 0.05
   max_epoch: 1
-  batch_size_train: 48
-  batch_size_eval: 48
-  num_workers: 0
+  batch_size_train: 16
+  batch_size_eval: 16
+  num_workers: 4
   prompt: "Question: {} Short answer:"
 
   # inference-specific
@@ -56,17 +56,16 @@ run:
   inference_method: "generate"
 
   seed: 42
-  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBIP/RE_FT/0930"
+  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBIP/test_demo"
   amp: False
   resume_ckpt_path: null
 
   evaluate: False
   train_splits: ["train"]
   valid_splits: ["val"]
-  test_splits: ["test"]
 
   # distribution-specific
-  device: "cuda:6"
+  device: "cuda"
   world_size: 1
   dist_url: "env://"
   distributed: True
