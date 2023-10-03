@@ -115,8 +115,8 @@ class Blip2VicunaInstructGRES(Blip2Base):
         self.llm_proj = nn.Linear(
             self.Qformer.config.hidden_size, self.llm_model.config.hidden_size
         )
-        for name, param in self.llm_proj.named_parameters():
-            param.requires_grad = False
+        # for name, param in self.llm_proj.named_parameters():
+        #     param.requires_grad = False
 
         self.context_and_focus_proj = nn.Linear(
             self.llm_model.config.hidden_size * 2, self.llm_model.config.hidden_size
