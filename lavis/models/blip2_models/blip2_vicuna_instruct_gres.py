@@ -95,7 +95,7 @@ class Blip2VicunaInstructGRES(Blip2Base):
 
         for name, param in self.llm_model.named_parameters():
             param.requires_grad = False
-        print('Loading LLAMA Done')
+
         self.llm_tokenizer.add_special_tokens({'pad_token': '[PAD]'})
         self.llm_tokenizer.add_special_tokens({'bos_token': '</s>'})
         self.llm_tokenizer.add_special_tokens({'eos_token': '</s>'})

@@ -51,12 +51,11 @@ class COCOVQAGRESDataset(VQADataset, __DisplMixin):
 
         focus_dict = {}
         focus_dict['image'] = raw_image
-        focus_dict['text_input'] = question[0]
-        resize_image, focus_dict = self.gres_model.infer(focus_dict)
+        focus_dict['text_input'] = question
+        resize_image, output = self.gres_model.infer(focus_dict)
 
-        raw_focus_image = resize_image * focus_dict['mask'][0].cpu()
+        raw_focus_image = resize_image * output['mask'][0].cpu()
         focus_image = np.array(raw_focus_image.permute(1, 2, 0))
-
         focus_image = Image.fromarray(np.uint8(focus_image))
         focus_image = self.vis_processor(focus_image)
 
@@ -148,12 +147,11 @@ class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
 
         focus_dict = {}
         focus_dict['image'] = raw_image
-        focus_dict['text_input'] = question[0]
-        resize_image, focus_dict = self.gres_model.infer(focus_dict)
+        focus_dict['text_input'] = question
+        resize_image, output = self.gres_model.infer(focus_dict)
 
-        raw_focus_image = resize_image * focus_dict['mask'][0].cpu()
+        raw_focus_image = resize_image * output['mask'][0].cpu()
         focus_image = np.array(raw_focus_image.permute(1, 2, 0))
-
         focus_image = Image.fromarray(np.uint8(focus_image))
         focus_image = self.vis_processor(focus_image)
 
