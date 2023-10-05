@@ -10,7 +10,7 @@ model:
   model_type: vicuna7b
   use_grad_checkpoint: False
   llm_model: "/mnt/local/wwx/Models/Vicuna/vicuna-7b/"
-  # ckpt: "/mnt/local/wwx/Output/LAVIS/GRES/VQA_Add_one_layer_20000/0924/20230924020/checkpoint_0.pth"
+  ckpt: "/mnt/local/wwx/Output/LAVIS/GRES/FT_VQA_fix_bug/1002/20231003071/checkpoint_best.pth"
 
 datasets:
   coco_vqa_gres: # name of the dataset builder
@@ -29,8 +29,8 @@ datasets:
 run:
   task: vqa
   # optimization-specific
-  batch_size_train: 48
-  batch_size_eval: 48
+  batch_size_train: 24
+  batch_size_eval: 24
   num_workers: 0
 
   # inference-specific
@@ -41,14 +41,14 @@ run:
   prompt: "Question: {} Short answer:"
 
   seed: 42
-  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBLIP/VQAEval/GRES/Eval_Demo"
+  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBLIP/VQAEval/GRES/one_gpu"
   # output_dir: "/root/autodl-tmp/wwx/Output/LAVIS/InstructBLIP/VQAEval/GRES/0928/"
 
   evaluate: True
   test_splits: ["val"]
 
   # distribution-specific
-  device: "cuda:3"
+  device: "cuda"
   world_size: 1
   dist_url: "env://"
   distributed: True

@@ -708,10 +708,10 @@ class Blip2VicunaInstructGRES(Blip2Base):
 
         model.load_checkpoint_from_config(cfg)
 
-        # ckpt_path = cfg.get("ckpt", "")  # load word_embeddingsights of MiniGPT-4
-        # if ckpt_path:
-        #     print("Load BLIP2-LLM Checkpoint: {}".format(ckpt_path))
-        #     ckpt = torch.load(ckpt_path, map_location="cpu")
-        #     msg = model.load_state_dict(ckpt['model'], strict=False)
+        ckpt_path = cfg.get("ckpt", "")  # load word_embeddingsights of MiniGPT-4
+        if ckpt_path:
+            print("Load BLIP2-LLM Checkpoint: {}".format(ckpt_path))
+            ckpt = torch.load(ckpt_path, map_location="cpu")
+            msg = model.load_state_dict(ckpt['model'], strict=False)
 
         return model
