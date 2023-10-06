@@ -14,7 +14,6 @@ class GRES_Inference:
         1
         --dist-url
         auto
-        --eval-only
         MODEL.WEIGHTS
         /mnt/local/wwx/Models/GRES/gres_swin_base.pth
         OUTPUT_DIR
@@ -31,8 +30,11 @@ class GRES_Inference:
         self.GRES_model, self.cfg = get_model(args)
         inference_context(self.GRES_model)
 
-    def infer(self, samples):
-        feature_dic = raw_data2feature(self.cfg, samples)
+    def infer(self, feature_dic):
+        # feature_dic = raw_data2feature(self.cfg, samples)
         outputs = self.GRES_model([feature_dic])
         return feature_dic['image'], outputs
+
+    def gres_data2feature(self, samples):
+        return raw_data2feature(self.cfg, samples)
 

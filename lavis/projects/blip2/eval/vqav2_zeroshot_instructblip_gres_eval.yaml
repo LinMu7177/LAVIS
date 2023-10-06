@@ -41,7 +41,7 @@ run:
   prompt: "Question: {} Short answer:"
 
   seed: 42
-  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBLIP/VQAEval/GRES/one_gpu"
+  output_dir: "/mnt/local/wwx/Output/LAVIS/InstructBLIP/VQAEval/GRES/two_gpu"
   # output_dir: "/root/autodl-tmp/wwx/Output/LAVIS/InstructBLIP/VQAEval/GRES/0928/"
 
   evaluate: True
@@ -49,6 +49,6 @@ run:
 
   # distribution-specific
   device: "cuda"
-  world_size: 1
+  world_size: 4
   dist_url: "env://"
   distributed: True

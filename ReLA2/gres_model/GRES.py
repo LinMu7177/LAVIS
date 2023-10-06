@@ -137,33 +137,51 @@ class GRES(nn.Module):
         features = self.backbone(images.tensor, lang_feat, lang_mask)
         outputs = self.sem_seg_head(features, lang_feat, lang_mask)
 
-        self.training = False
+        res_images = torch.Tensor([]).to(self.device)
+        for image in images:
+            res_images = torch.cat((res_images, image.unsqueeze(0)), dim=0)
+
+        src_masks = outputs['pred_masks']
+        h, w = res_images.shape[-2:]
+        src_masks = F.interpolate(src_masks, (h, w), mode='bilinear', align_corners=False)
+        mask = torch.sigmoid(src_masks[:, 1, :, :].unsqueeze(dim=1))
+        # mask = src_masks[:, 1, :, :].unsqueeze(dim=1)
+        # above_threshold = src_masks[:, 1, :, :] >= 0
+        # raw_mask = above_threshold.int().unsqueeze(dim=1)
+
+        return {
+            'images': res_images,
+            'mask': mask
+        }
+
+
+        # # self.training = False
         # print('is training: ', self.training)
-        if self.training:
-            targets = self.prepare_targets(batched_inputs, images)
-
-            losses = self.criterion(outputs, targets)
-
-            for k in list(losses.keys()):
-                if k in self.criterion.weight_dict:
-                    losses[k] *= self.criterion.weight_dict[k]
-                else:
-                    losses.pop(k)
-            return losses
-        else:
-            # concatenate outputs['images'].tensor
-            res_images = torch.Tensor([]).to(self.device)
-            for image in images:
-                res_images = torch.cat((res_images, image.unsqueeze(0)), dim=0)
-
-            src_masks = outputs['pred_masks']
-            h, w = res_images.shape[-2:]
-            src_masks = F.interpolate(src_masks, (h, w), mode='bilinear', align_corners=False)
-            above_threshold = src_masks[:, 1, :, :] >= 0
-            return {
-                'images': res_images,
-                'mask': above_threshold.int().unsqueeze(dim=1)
-            }
+        # if self.training:
+        #     targets = self.prepare_targets(batched_inputs, images)
+        #
+        #     losses = self.criterion(outputs, targets)
+        #
+        #     for k in list(losses.keys()):
+        #         if k in self.criterion.weight_dict:
+        #             losses[k] *= self.criterion.weight_dict[k]
+        #         else:
+        #             losses.pop(k)
+        #     return losses
+        # else:
+        #     # concatenate outputs['images'].tensor
+        #     res_images = torch.Tensor([]).to(self.device)
+        #     for image in images:
+        #         res_images = torch.cat((res_images, image.unsqueeze(0)), dim=0)
+        #
+        #     src_masks = outputs['pred_masks']
+        #     h, w = res_images.shape[-2:]
+        #     src_masks = F.interpolate(src_masks, (h, w), mode='bilinear', align_corners=False)
+        #     above_threshold = src_masks[:, 1, :, :] >= 0
+        #     return {
+        #         'images': res_images,
+        #         'mask': above_threshold.int().unsqueeze(dim=1)
+        #     }
 
     def prepare_targets(self, batched_inputs, images):
         h_pad, w_pad = images.tensor.shape[-2:]

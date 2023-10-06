@@ -96,8 +96,8 @@ class BaseTask:
 
             samples['image'] = samples['image'].to(model.device)
             samples['question_id'] = samples['question_id'].to(model.device)
-            if type(model).__name__ == 'Blip2VicunaInstructGRES':
-                samples['focus_image'] = samples['focus_image'].to(model.device)
+            # if type(model).__name__ == 'Blip2VicunaInstructGRES':
+            #     samples['focus_image'] = samples['focus_image'].to(model.device)
 
             eval_output = self.valid_step(model=model, samples=samples)
             results.extend(eval_output)
@@ -213,8 +213,8 @@ class BaseTask:
             samples = next(data_loader)
 
             samples['image'] = samples['image'].to(model.device)
-            if type(model).__name__ == 'Blip2VicunaInstructGRES':
-                samples['focus_image'] = samples['focus_image'].to(model.device)
+            # if type(model).__name__ == 'Blip2VicunaInstructGRES':
+            #     samples['focus_image'] = samples['focus_image'].to(model.device)
             # samples['weight'] = samples['weight'].to(model.device)
             # samples['n_answers'] = samples['n_answers'].to(model.device)
 

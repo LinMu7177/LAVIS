@@ -15,6 +15,10 @@ from lavis.models.blip2_models.blip2 import Blip2Base, disabled_train
 from transformers import LlamaTokenizer
 from lavis.models.blip2_models.modeling_llama import LlamaForCausalLM
 
+from ReLA2.gres_init_model import GRES_Model
+
+import torch.nn.functional as F
+
 @registry.register_model("blip2_vicuna_instruct_gres")
 class Blip2VicunaInstructGRES(Blip2Base):
 
@@ -45,6 +49,14 @@ class Blip2VicunaInstructGRES(Blip2Base):
         assert transformers_version >= version.parse("4.28"), "BLIP-2 Vicuna requires transformers>=4.28"
 
         self.tokenizer = self.init_tokenizer(truncation_side="left")
+
+        print('Loading GRES')
+        self.gres = GRES_Model().GRES_model
+        for name, param in self.gres.named_parameters():
+            # param.requires_grad = False
+            if 'RLA' not in name and 'RIA' not in name:
+                param.requires_grad = False
+        print('Loading GRES Done')
 
         print('Loading VIT')
         self.visual_encoder, self.ln_vision = self.init_vision_encoder(
@@ -101,12 +113,7 @@ class Blip2VicunaInstructGRES(Blip2Base):
         self.llm_tokenizer.add_special_tokens({'eos_token': '</s>'})
         self.llm_tokenizer.add_special_tokens({'unk_token': '</s>'})
         # self.llm_tokenizer.pad_token = self.llm_tokenizer.unk_token
-
         self.llm_model.resize_token_embeddings(len(self.llm_tokenizer))
-
-        # self.eos_token_id = self.llm_tokenizer(
-        #     self.llm_tokenizer.eos_token, add_special_tokens=False
-        # ).input_ids[0]
 
         for name, param in self.llm_model.named_parameters():
             param.requires_grad = False
@@ -115,8 +122,6 @@ class Blip2VicunaInstructGRES(Blip2Base):
         self.llm_proj = nn.Linear(
             self.Qformer.config.hidden_size, self.llm_model.config.hidden_size
         )
-        # for name, param in self.llm_proj.named_parameters():
-        #     param.requires_grad = False
 
         self.context_and_focus_proj = nn.Linear(
             self.llm_model.config.hidden_size * 2, self.llm_model.config.hidden_size
@@ -163,7 +168,10 @@ class Blip2VicunaInstructGRES(Blip2Base):
         device = samples["image"].device
         image = samples["image"]
         prompt = self.prompt_wrap(samples, self.prompt)
-        focus_image = samples["focus_image"].to(device)
+        focus_image = self.gres(samples["focus_dict"])
+        focus_image = focus_image['images'] * focus_image['mask']
+        focus_image = F.interpolate(focus_image, size=(224, 224), mode='bilinear', align_corners=False)
+        # focus_image = samples["focus_image"].to(device)
 
         with self.maybe_autocast():
             image_embeds = self.ln_vision(self.visual_encoder(image))
@@ -287,7 +295,10 @@ class Blip2VicunaInstructGRES(Blip2Base):
             prompt = self.prompt
 
         image = samples["image"].to(device)
-        focus_image = samples["focus_image"].to(device)
+        focus_image = self.gres(samples["focus_dict"])
+        focus_image = focus_image['images'] * focus_image['mask']
+        focus_image = F.interpolate(focus_image, size=(224, 224), mode='bilinear', align_corners=False)
+        # focus_image = samples["focus_image"].to(device)
 
         bs = image.size(0)
 

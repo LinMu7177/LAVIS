@@ -7,18 +7,15 @@
 
 import os
 import json
-import numpy as np
-
-from PIL import Image
-
-from lavis.datasets.datasets.vqa_datasets import VQADataset, VQAEvalDataset
-
-from collections import OrderedDict
 import torch
 import numpy as np
 
-from ReLA2.Inference import GRES_Inference
+from PIL import Image
+from collections import OrderedDict
 
+from lavis.datasets.datasets.vqa_datasets import VQADataset, VQAEvalDataset
+
+from ReLA2.Inference import GRES_Inference
 
 class __DisplMixin:
     def displ_item(self, index):
@@ -39,6 +36,7 @@ class COCOVQAGRESDataset(VQADataset, __DisplMixin):
     def __init__(self, vis_processor, text_processor, vis_root, ann_paths):
         super().__init__(vis_processor, text_processor, vis_root, ann_paths)
         self.gres_model = GRES_Inference()
+        self.gres_tool = GRES_Inference()
 
     def __getitem__(self, index):
         ann = self.annotation[index]
@@ -52,12 +50,14 @@ class COCOVQAGRESDataset(VQADataset, __DisplMixin):
         focus_dict = {}
         focus_dict['image'] = raw_image
         focus_dict['text_input'] = question
-        resize_image, output = self.gres_model.infer(focus_dict)
 
-        raw_focus_image = resize_image * output['mask'][0].cpu()
-        focus_image = np.array(raw_focus_image.permute(1, 2, 0))
-        focus_image = Image.fromarray(np.uint8(focus_image))
-        focus_image = self.vis_processor(focus_image)
+        focus_dict = self.gres_tool.gres_data2feature(focus_dict)
+
+        # resize_image, output = self.gres_model.infer(focus_dict)
+        # raw_focus_image = resize_image * output['mask'][0].cpu()
+        # focus_image = np.array(raw_focus_image.permute(1, 2, 0))
+        # focus_image = Image.fromarray(np.uint8(focus_image))
+        # focus_image = self.vis_processor(focus_image)
 
         image = self.vis_processor(image)
 
@@ -74,19 +74,19 @@ class COCOVQAGRESDataset(VQADataset, __DisplMixin):
 
         return {
             "image": image,
-            "focus_image": focus_image,
+            "focus_dict": focus_dict,
             "text_input": question,
             "text_output": best_answer,
 
         }
 
     def collater(self, samples):
-        image_list, focus_image_list, question_list, answer_list = [], [], [], [],
+        image_list, focus_dict_list, question_list, answer_list = [], [], [], [],
 
         for sample in samples:
             image_list.append(sample["image"])
 
-            focus_image_list.append(sample["focus_image"])
+            focus_dict_list.append(sample["focus_dict"])
 
             question_list.append(sample["text_input"])
 
@@ -96,7 +96,7 @@ class COCOVQAGRESDataset(VQADataset, __DisplMixin):
 
         return {
             "image": torch.stack(image_list, dim=0),
-            "focus_image": torch.stack(focus_image_list, dim=0),
+            "focus_dict": focus_dict_list,
             "text_input": question_list,
             "text_output": answer_list,
         }
@@ -114,7 +114,7 @@ class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
         self.annotation = json.load(open(ann_paths[0]))
 
         # Data sampling
-        self.annotation = self.annotation[:10000]
+        self.annotation = self.annotation[:100000]
 
         answer_list_path = ann_paths[1]
         if os.path.exists(answer_list_path):
@@ -134,7 +134,8 @@ class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
 
         self._add_instance_ids()
 
-        self.gres_model = GRES_Inference()
+        # self.gres_model = GRES_Inference()
+        self.gres_tool = GRES_Inference()
 
     def __getitem__(self, index):
         ann = self.annotation[index]
@@ -148,19 +149,43 @@ class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
         focus_dict = {}
         focus_dict['image'] = raw_image
         focus_dict['text_input'] = question
-        resize_image, output = self.gres_model.infer(focus_dict)
 
-        raw_focus_image = resize_image * output['mask'][0].cpu()
-        focus_image = np.array(raw_focus_image.permute(1, 2, 0))
-        focus_image = Image.fromarray(np.uint8(focus_image))
-        focus_image = self.vis_processor(focus_image)
+        focus_dict = self.gres_tool.gres_data2feature(focus_dict)
+
+        # resize_image, output = self.gres_model.infer(focus_dict)
+        # raw_focus_image = resize_image * output['mask'][0].cpu()
+        # focus_image = np.array(raw_focus_image.permute(1, 2, 0))
+        # focus_image = Image.fromarray(np.uint8(focus_image))
+        # focus_image = self.vis_processor(focus_image)
 
         image = self.vis_processor(image)
 
         return {
             "image": image,
-            "focus_image": focus_image,
+            "focus_dict": focus_dict,
             "text_input": question,
             "question_id": ann["question_id"],
             "instance_id": ann["instance_id"],
+        }
+
+    def collater(self, samples):
+        image_list, focus_dict_list, text_input_list, question_id_list, instance_id_list = [], [], [], [], []
+
+        for sample in samples:
+            image_list.append(sample["image"])
+
+            focus_dict_list.append(sample["focus_dict"])
+
+            text_input_list.append(sample["text_input"])
+
+            question_id_list.append(sample["question_id"])
+
+            instance_id_list.append(sample["instance_id"])
+
+        return {
+            "image": torch.stack(image_list, dim=0),
+            "focus_dict": focus_dict_list,
+            "text_input": text_input_list,
+            "question_id": torch.tensor(question_id_list),
+            "instance_id": instance_id_list,
         }
