@@ -134,6 +134,9 @@ class Blip2VicunaInstruct(Blip2Base):
         self.prompt = 'Question: {} Short answer:'
         self.summary_prompt = 'Please give an overview of the content of the image.'
 
+        self.overview_prompt = 'The overview of the image is as follows: '
+        self.focus_prompt = 'The information that needs to be highlighted is as follows: '
+
     def concat_text_input_output(self, input_ids, input_atts, output_ids, output_atts):
         input_part_targets_len = []
         llm_tokens = {"input_ids": [], "attention_mask": []}
@@ -165,6 +168,9 @@ class Blip2VicunaInstruct(Blip2Base):
         prompt = self.prompt_wrap(samples, self.prompt)
         summary_prompt = [self.summary_prompt] * len(prompt)
 
+        overview_prompt = [self.overview_prompt] * len(prompt)
+        focus_prompt = [self.focus_prompt] * len(prompt)
+
         with self.maybe_autocast():
             image_embeds = self.ln_vision(self.visual_encoder(image))
         image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(device)
@@ -192,7 +198,6 @@ class Blip2VicunaInstruct(Blip2Base):
         summary_query_atts = torch.ones(summary_query_tokens.size()[:-1], dtype=torch.long).to(device)
         summary_Qformer_atts = torch.cat([summary_query_atts, summary_text_Qformer.attention_mask], dim=1)
 
-
         query_output = self.Qformer.bert(
             text_Qformer.input_ids,
             attention_mask=Qformer_atts,
@@ -202,7 +207,15 @@ class Blip2VicunaInstruct(Blip2Base):
             return_dict=True,
         )
 
+        focus_llm_tokens = self.llm_tokenizer(
+            focus_prompt,
+            padding="longest",
+            return_tensors="pt"
+        ).to(device)
+        focus_embeds = self.llm_model.get_input_embeddings()(focus_llm_tokens['input_ids'])
+
         inputs_llm = self.llm_proj(query_output.last_hidden_state[:,:query_tokens.size(1),:])
+        inputs_llm = torch.cat([focus_embeds, inputs_llm], dim=1)
         atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(device)
 
         summary_query_output = self.Qformer.bert(
@@ -213,8 +226,15 @@ class Blip2VicunaInstruct(Blip2Base):
             encoder_attention_mask=image_atts,
             return_dict=True,
         )
+        overview_llm_tokens = self.llm_tokenizer(
+            overview_prompt,
+            padding="longest",
+            return_tensors="pt"
+        ).to(device)
+        overview_embeds = self.llm_model.get_input_embeddings()(overview_llm_tokens['input_ids'])
 
         summary_inputs_llm = self.summary_llm_proj(summary_query_output.last_hidden_state[:, :summary_query_tokens.size(1), :])
+        summary_inputs_llm = torch.cat([overview_embeds, summary_inputs_llm], dim=1)
         summary_atts_llm = torch.ones(summary_inputs_llm.size()[:-1], dtype=torch.long).to(device)
 
         self.llm_tokenizer.padding_side = "right"
@@ -290,8 +310,10 @@ class Blip2VicunaInstruct(Blip2Base):
     ):
         device = samples["image"].device
         self.llm_tokenizer.padding_side = "left"
-        summary_prompt = 'Please give an overview of the content of the image.'
+        self.summary_prompt = 'Please give an overview of the content of the image.'
 
+        self.overview_prompt = 'The overview of the image is as follows: '
+        self.focus_prompt = 'The information that needs to be highlighted is as follows: '
 
         if "prompt" in samples.keys():
             prompt = samples["prompt"]
@@ -299,18 +321,11 @@ class Blip2VicunaInstruct(Blip2Base):
             prompt = self.prompt
 
         summary_prompt = [self.summary_prompt] * len(prompt)
+        overview_prompt = [self.overview_prompt] * len(prompt)
+        focus_prompt = [self.focus_prompt] * len(prompt)
         image = samples["image"].to(device)
 
         bs = image.size(0)
-
-        # if isinstance(prompt, str):
-        #     prompt = [prompt] * bs
-        # else:
-        #     assert len(prompt) == bs, "The number of prompts must be equal to the batch size."
-
-        # For TextCaps
-        if "ocr_tokens" in samples.keys() and "{}" in prompt[0]:
-            prompt = [p.format(', '.join(samples['ocr_tokens'][i][:30])) for i, p in enumerate(prompt)]
 
         query_tokens = self.query_tokens.expand(bs, -1, -1)
         summary_query_tokens = self.query_tokens.expand(image.size(0), -1, -1)
@@ -326,6 +341,7 @@ class Blip2VicunaInstruct(Blip2Base):
             max_length=self.max_txt_len,
             return_tensors="pt",
         ).to(device)
+
         query_atts = torch.ones(query_tokens.size()[:-1], dtype=torch.long).to(device)
         Qformer_atts = torch.cat([query_atts, text_Qformer.attention_mask], dim=1)
 
@@ -348,8 +364,16 @@ class Blip2VicunaInstruct(Blip2Base):
             return_dict=True,
         )
 
+        focus_llm_tokens = self.llm_tokenizer(
+            focus_prompt,
+            padding="longest",
+            return_tensors="pt"
+        ).to(device)
+        focus_embeds = self.llm_model.get_input_embeddings()(focus_llm_tokens['input_ids'])
+
         inputs_llm = self.llm_proj(query_output.last_hidden_state[:, :query_tokens.size(1), :])
-        atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(image.device)
+        inputs_llm = torch.cat([focus_embeds, inputs_llm], dim=1)
+        atts_llm = torch.ones(inputs_llm.size()[:-1], dtype=torch.long).to(device)
 
         summary_query_output = self.Qformer.bert(
             summary_text_Qformer.input_ids,
@@ -360,7 +384,16 @@ class Blip2VicunaInstruct(Blip2Base):
             return_dict=True,
         )
 
-        summary_inputs_llm = self.summary_llm_proj(summary_query_output.last_hidden_state[:, :summary_query_tokens.size(1), :])
+        overview_llm_tokens = self.llm_tokenizer(
+            overview_prompt,
+            padding="longest",
+            return_tensors="pt"
+        ).to(device)
+        overview_embeds = self.llm_model.get_input_embeddings()(overview_llm_tokens['input_ids'])
+
+        summary_inputs_llm = self.summary_llm_proj(
+            summary_query_output.last_hidden_state[:, :summary_query_tokens.size(1), :])
+        summary_inputs_llm = torch.cat([overview_embeds, summary_inputs_llm], dim=1)
         summary_atts_llm = torch.ones(summary_inputs_llm.size()[:-1], dtype=torch.long).to(device)
 
         llm_tokens = self.llm_tokenizer(

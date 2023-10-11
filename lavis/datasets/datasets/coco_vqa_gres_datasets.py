@@ -114,7 +114,7 @@ class COCOVQAGRESEvalDataset(VQAEvalDataset, __DisplMixin):
         self.annotation = json.load(open(ann_paths[0]))
 
         # Data sampling
-        self.annotation = self.annotation[:10000]
+        # self.annotation = self.annotation[:10000]
 
         answer_list_path = ann_paths[1]
         if os.path.exists(answer_list_path):
