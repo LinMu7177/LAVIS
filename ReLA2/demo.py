@@ -30,9 +30,9 @@ configs/referring_swin_base.yaml
 auto
 --eval-only
 MODEL.WEIGHTS
-/mnt/local/wwx/Models/GRES/gres_swin_base.pth
+/mnt/local/wwx/ckpts/GRES/
 OUTPUT_DIR
-/mnt/local/wwx/Output/GRES"""
+/mnt/local/wwx/output/GRES"""
 
 for argument in artificial_args.split('\n'):
     sys.argv.append(argument)

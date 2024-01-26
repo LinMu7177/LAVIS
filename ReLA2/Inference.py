@@ -15,12 +15,12 @@ class GRES_Inference:
         --dist-url
         auto
         MODEL.WEIGHTS
-        /mnt/local/wwx/Models/GRES/gres_swin_base.pth
+        /mnt/local/wwx/ckpts/GRES/gres_swin_base.pth
         OUTPUT_DIR
-        /mnt/local/wwx/Output/GRES/0918"""
+        /mnt/local/wwx/output/GRES/0918"""
 
         sys.argv = []
-        sys.argv.append('/home/tsingqguo/wwx/paper_worksapce/LAVIS/ReLA2/demo.py')
+        sys.argv.append('/root/users/wwx/RI_worksapce/LAVIS/ReLA2/demo.py')
         for argument in artificial_args.split('\n'):
             sys.argv.append(argument.lstrip())
 

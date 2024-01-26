@@ -8,8 +8,7 @@ model:
 
   model_type: vicuna7b
   load_finetuned: False
-  llm_model: "/mnt/local/wwx/Models/Vicuna/vicuna-7b/"
-  # llm_model: "/root/autodl-tmp/ckpts/vicuna-7b-v1.1/"
+  llm_model: "/mnt/local/share/models/Vicuna/vicuna-7b/
 
 datasets:
   coco_vqa: # name of the dataset builder

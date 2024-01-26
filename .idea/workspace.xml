@@ -4,59 +4,84 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="367fcf09-2bd9-48eb-86f2-d6d1fae23b35" name="Changes" comment="" />
+    <list default="true" id="367fcf09-2bd9-48eb-86f2-d6d1fae23b35" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReLA2/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReLA2/configs/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReLA2/datasets/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReLA2/gres_model/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReLA2/tools/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Untitled1.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset_card/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset_card/imgs/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_static/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/common/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/configs/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/datasets/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/models/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/processors/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/projects/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/runners/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lavis/tasks/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/blip-diffusion/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/blip2/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/img2llm-vqa/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/img2prompt-vqa/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/instructblip/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/pnp-vqa/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/albef/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/alpro/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/blip-diffusion/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/blip/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/blip2/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/clip/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/gpt/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_scripts/pnp-vqa/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/.uuid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/models/.uuid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/Inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReLA2/Inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/configs/Base-COCO-InstanceSegmentation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ReLA2/configs/Base-COCO-InstanceSegmentation.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReLA2/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_init_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReLA2/gres_init_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/GRES.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReLA2/gres_model/GRES.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/datasets/register_refcoco.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReLA2/gres_model/data/datasets/register_refcoco.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/tools/gres_data_transfer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReLA2/tools/gres_data_transfer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_infer.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/demo_infer.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/default.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/configs/default.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_eval.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_eval.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_gres_eval.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_gres_eval.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/train/instructblip_gres_vqav2_ft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/projects/blip2/train/instructblip_gres_vqav2_ft.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/train/instructblip_vqav2_ft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/projects/blip2/train/instructblip_vqav2_ft.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis/lib/python3.8/site-packages/torch/nn/modules/module.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/abc.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/PIL/Image.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/detectron2/config/config.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/detectron2/data/transforms/augmentation.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/huggingface_hub/utils/_validators.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/omegaconf/basecontainer.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/omegaconf/dictconfig.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/__init__.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/amp/autocast_mode.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/autograd/grad_mode.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/distributed/__init__.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/api.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/distributed/elastic/rendezvous/static_tcp_rendezvous.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/nn/_reduction.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/nn/functional.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/nn/modules/container.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/nn/modules/conv.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/nn/modules/linear.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/nn/modules/loss.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/nn/modules/module.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/nn/modules/sparse.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/serialization.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/utils/_contextlib.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/utils/data/_utils/collate.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/utils/data/dataloader.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torch/utils/data/dataset.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torchvision/transforms/_functional_pil.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torchvision/transforms/functional.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/torchvision/transforms/transforms.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/transformers/configuration_utils.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/transformers/generation/utils.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/transformers/integrations/deepspeed.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/transformers/modeling_utils.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/transformers/models/llama/tokenization_llama.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/site-packages/transformers/tokenization_utils_base.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_and_gres/lib/python3.8/typing.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_v2/lib/python3.8/site-packages/torch/nn/modules/module.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_v2/lib/python3.8/site-packages/transformers/tokenization_utils.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/lavis_v2/lib/python3.8/site-packages/transformers/tokenization_utils_base.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/anaconda3/envs/test/lib/python3.8/site-packages/torch/nn/functional.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/anaconda3/envs/test/lib/python3.8/site-packages/torch/nn/modules/module.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/anaconda3/envs/test/lib/python3.8/site-packages/yaml/parser.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/README.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ReLA2/Inference.py" root0="FORCE_HIGHLIGHTING" />
@@ -99,28 +124,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/tsingqguo/wwx/LAVIS_1001",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "two.files.diff.last.used.file": "/home/tsingqguo/wwx/paper_worksapce/LAVIS/lavis/models/blip2_models/blip2_vicuna_instruct.py",
-    "two.files.diff.last.used.folder": "/home/tsingqguo/wwx/LAVIS_1001",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/root/users/wwx/paper_worksapce/LAVIS/ReLA2/gres_model/GRES.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;/root/users/wwx/paper_worksapce/LAVIS/ReLA2/gres_model/GRES.py&quot;,
+    &quot;two.files.diff.last.used.folder&quot;: &quot;/root/users/wwx/paper_worksapce/LAVIS/ReLA2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="PyDebuggerOptionsProvider">
     <option name="mySupportGeventDebugging" value="true" />
   </component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="false">
     <layout>
       <window_info id="Commit_Guest" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21076389" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17734376" />
       <window_info id="Space Code Reviews" order="1" />
       <window_info id="Bookmarks" order="2" side_tool="true" />
       <window_info id="Structure" order="3" weight="0.1267361" />
@@ -137,13 +163,14 @@
       <window_info anchor="bottom" id="Problems View" order="6" />
       <window_info anchor="bottom" id="Services" order="7" weight="0.33055556" />
       <window_info anchor="bottom" id="Dependency Checker" order="8" />
-      <window_info anchor="bottom" id="Debug" order="9" show_stripe_button="false" weight="0.6627778" />
-      <window_info anchor="bottom" id="Run" order="10" weight="0.38722223" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33722222" />
+      <window_info anchor="bottom" id="Debug" order="9" visible="true" weight="0.45166665" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.7416667" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3115741" />
+      <window_info anchor="bottom" id="Jupyter" order="12" weight="0.3300926" />
       <window_info anchor="right" id="Endpoints" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="1" weight="0.32994792" />
       <window_info anchor="right" id="documentation.v2" order="2" side_tool="true" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.32881945" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.23671874" />
       <window_info anchor="right" id="Notifications" order="4" side_tool="true" />
       <window_info anchor="right" id="CodeGPT" order="5" weight="0.578125" />
     </layout>
@@ -158,6 +185,28 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.evaluate_instructblip">
+    <configuration name="demo_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LAVIS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="evaluate_gres_instructblip" type="PythonConfigurationType" factoryName="Python">
       <module name="LAVIS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -165,10 +214,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -188,8 +236,8 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
+      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/test/bin/python" />
+      <option name="SDK_NAME" value="Python 3.8 (test)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -212,7 +260,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -232,11 +279,10 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="CUDA_VISIBLE_DEVICES" value="4,5,6,7" />
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="CUDA_VISIBLE_DEVICES" value="4,5,6,7" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -260,7 +306,6 @@
         <env name="CUDA_VISIBLE_DEVICES" value="4,5,6,7" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -283,7 +328,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -306,13 +350,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projects/instructblip" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projects/instructblip/run_demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LAVIS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -329,7 +394,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -352,7 +416,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_v2/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_v2)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -374,10 +437,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -398,7 +460,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/lavis_and_gres/bin/python" />
-      <option name="SDK_NAME" value="Python 3.8 (lavis_and_gres)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -425,7 +486,15 @@
       <item itemvalue="Python.multi_gres_train_instructblip" />
       <item itemvalue="Python.run_demo" />
       <item itemvalue="Python.train_blip" />
+      <item itemvalue="Python.demo_test" />
+      <item itemvalue="Python.test" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.demo_test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -483,6 +552,22 @@
       <workItem from="1696480391444" duration="4356000" />
       <workItem from="1696559220206" duration="1260000" />
       <workItem from="1696565033397" duration="8307000" />
+      <workItem from="1705912343472" duration="107000" />
+      <workItem from="1705912650992" duration="58000" />
+      <workItem from="1705912890432" duration="134000" />
+      <workItem from="1705913297248" duration="100000" />
+      <workItem from="1705913591131" duration="1140000" />
+      <workItem from="1705914837343" duration="559000" />
+      <workItem from="1705977846235" duration="157000" />
+      <workItem from="1705978176779" duration="32000" />
+      <workItem from="1705978476925" duration="599000" />
+      <workItem from="1705987966183" duration="2969000" />
+      <workItem from="1705997157104" duration="2474000" />
+      <workItem from="1706079606661" duration="599000" />
+      <workItem from="1706083924039" duration="961000" />
+      <workItem from="1706094513527" duration="3681000" />
+      <workItem from="1706159308832" duration="7691000" />
+      <workItem from="1706185749926" duration="599000" />
     </task>
     <servers />
   </component>
@@ -509,19 +594,9 @@
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/ReLA2/Inference.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct_gres.py</url>
           <line>172</line>
           <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/lavis/datasets/datasets/base_dataset.py</url>
-          <line>70</line>
-          <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/datasets/datasets/coco_vqa_datasets.py</url>
@@ -533,28 +608,75 @@
           <line>17</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct_gres.py</url>
+          <line>143</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct_gres.py</url>
+          <line>170</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/ReLA2/Inference.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/ReLA2/gres_model/GRES.py</url>
+          <line>152</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/ReLA2/gres_model/GRES.py</url>
+          <line>148</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/ReLA2/gres_model/GRES.py</url>
+          <line>149</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/LAVIS$train_blip.coverage" NAME="train_blip Coverage Results" MODIFIED="1695876000959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$multi_evaluate_instructblip.coverage" NAME="multi_evaluate_instructblip Coverage Results" MODIFIED="1696570657447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$evaluate.coverage" NAME="evaluate_instructblip Coverage Results" MODIFIED="1695093854980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$demo_v2.coverage" NAME="demo_v2 Coverage Results" MODIFIED="1695264788062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ReLA2" />
-    <SUITE FILE_PATH="coverage/LAVIS$run_demo.coverage" NAME="run_demo Coverage Results" MODIFIED="1695026890345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/instructblip" />
-    <SUITE FILE_PATH="coverage/LAVIS$evaluate_instructblip.coverage" NAME="evaluate_instructblip Coverage Results" MODIFIED="1696303925970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$infer_demo.coverage" NAME="infer_demo Coverage Results" MODIFIED="1695264708222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lavis/datasets/datasets" />
-    <SUITE FILE_PATH="coverage/LAVIS$train_gres_instructblip.coverage" NAME="train_gres_instructblip Coverage Results" MODIFIED="1696570305553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$infer_demo__1_.coverage" NAME="infer_demo (1) Coverage Results" MODIFIED="1695268322072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LAVIS$mmmulti_train_instructblip.coverage" NAME="multi_train_instructblip Coverage Results" MODIFIED="1696171429748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$train.coverage" NAME="train Coverage Results" MODIFIED="1695003134877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$tmp_train_gres_instructblip.coverage" NAME="tmp_train_gres_instructblip Coverage Results" MODIFIED="1696566596007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$demo.coverage" NAME="demo Coverage Results" MODIFIED="1695260068442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ReLA2" />
-    <SUITE FILE_PATH="coverage/LAVIS$evaluate_gres_instructblip.coverage" NAME="evaluate_gres_instructblip Coverage Results" MODIFIED="1696481974956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$multi_gres_train_instructblip.coverage" NAME="multi_gres_train_instructblip Coverage Results" MODIFIED="1696568885103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$multi_evaluate_instructblip.coverage" NAME="multi_evaluate_instructblip Coverage Results" MODIFIED="1696570657447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$demo_test.coverage" NAME="demo_test Coverage Results" MODIFIED="1706167726351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LAVIS$tmpppppppppp.coverage" NAME="tmpppppppppp Coverage Results" MODIFIED="1695524336362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lavis/models/blip2_models" />
-    <SUITE FILE_PATH="coverage/LAVIS$multi_train_instructblip.coverage" NAME="multi_train_instructblip Coverage Results" MODIFIED="1696167459177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$train_instructblip.coverage" NAME="train_instructblip Coverage Results" MODIFIED="1696247334320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$infer_demo.coverage" NAME="infer_demo Coverage Results" MODIFIED="1695264708222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lavis/datasets/datasets" />
+    <SUITE FILE_PATH="coverage/LAVIS$train_blip.coverage" NAME="train_blip Coverage Results" MODIFIED="1695876000959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$train.coverage" NAME="train Coverage Results" MODIFIED="1695003134877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$evaluate_gres_instructblip.coverage" NAME="evaluate_gres_instructblip Coverage Results" MODIFIED="1706095669611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$infer_demo__1_.coverage" NAME="infer_demo (1) Coverage Results" MODIFIED="1695268322072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$train_gres_instructblip.coverage" NAME="train_gres_instructblip Coverage Results" MODIFIED="1706166726464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$tmp_train_gres_instructblip.coverage" NAME="tmp_train_gres_instructblip Coverage Results" MODIFIED="1696566596007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$test.coverage" NAME="test Coverage Results" MODIFIED="1706170258950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LAVIS$multi_gres_evaluate_instructblip.coverage" NAME="multi_gres_evaluate_instructblip Coverage Results" MODIFIED="1696573042513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$demo_v2.coverage" NAME="demo_v2 Coverage Results" MODIFIED="1695264788062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ReLA2" />
+    <SUITE FILE_PATH="coverage/LAVIS$evaluate_instructblip.coverage" NAME="evaluate_instructblip Coverage Results" MODIFIED="1706094652597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$run_demo.coverage" NAME="run_demo Coverage Results" MODIFIED="1695026890345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/instructblip" />
+    <SUITE FILE_PATH="coverage/LAVIS$evaluate.coverage" NAME="evaluate_instructblip Coverage Results" MODIFIED="1695093854980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$demo.coverage" NAME="demo Coverage Results" MODIFIED="1695260068442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ReLA2" />
+    <SUITE FILE_PATH="coverage/LAVIS$train_instructblip.coverage" NAME="train_instructblip Coverage Results" MODIFIED="1696247334320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$multi_gres_train_instructblip.coverage" NAME="multi_gres_train_instructblip Coverage Results" MODIFIED="1696568885103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$multi_train_instructblip.coverage" NAME="multi_train_instructblip Coverage Results" MODIFIED="1696167459177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

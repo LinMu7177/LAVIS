@@ -144,9 +144,10 @@ class GRES(nn.Module):
         src_masks = outputs['pred_masks']
         h, w = res_images.shape[-2:]
         src_masks = F.interpolate(src_masks, (h, w), mode='bilinear', align_corners=False)
-        mask = torch.sigmoid(src_masks[:, 1, :, :].unsqueeze(dim=1))
+        # mask = torch.sigmoid(src_masks[:, 1, :, :].unsqueeze(dim=1))
         # mask = src_masks[:, 1, :, :].unsqueeze(dim=1)
-        # above_threshold = src_masks[:, 1, :, :] >= 0
+        above_threshold = src_masks[:, 1, :, :] >= 0
+        mask = above_threshold.int().unsqueeze(dim=1)
         # raw_mask = above_threshold.int().unsqueeze(dim=1)
 
         return {

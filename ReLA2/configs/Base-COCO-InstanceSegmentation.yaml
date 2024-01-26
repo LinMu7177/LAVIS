@@ -14,8 +14,7 @@ MODEL:
     # NORM: "SyncBN"
     RES5_MULTI_GRID: [1, 1, 1]  # not used
 DATASETS:
-  REF_ROOT: "/mnt/local/wwx/LLM_Data/"
-  # REF_ROOT: "/root/autodl-tmp/wwx/LLM_Data/"
+  REF_ROOT: "/mnt/local/wwx/data/"
   TRAIN: ("refcoco_unc_train",)
   TEST: ("refcoco_unc_val",)
 REFERRING:

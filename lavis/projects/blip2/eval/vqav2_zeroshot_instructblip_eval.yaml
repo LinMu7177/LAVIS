@@ -9,7 +9,7 @@ model:
   arch: blip2_vicuna_instruct
   model_type: vicuna7b
   use_grad_checkpoint: False
-  llm_model: "/mnt/local/wwx/Models/Vicuna/vicuna-7b/"
+  llm_model: "/mnt/local/share/models/Vicuna/vicuna-7b/"
 
 datasets:
   coco_vqa: # name of the dataset builder

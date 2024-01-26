@@ -87,7 +87,7 @@ def register_grefcoco_full(root):
             )
 
 
-_root = os.getenv("DETECTRON2_DATASETS", "/mnt/local/wwx/LLM_Data/refcoco/")
+_root = os.getenv("DETECTRON2_DATASETS", "/mnt/local/wwx/data/GRES/refcoco/")
 register_refcoco(_root)
 register_grefcoco(_root)
 register_grefcoco_full(_root)

@@ -29,7 +29,7 @@ os.environ['OPENAI_API_KEY'] = 'sk-yHxAxSK8BmoIt5lT2ChIT3BlbkFJwpc95NDn76MI6r5Xl
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # GRES Data
-GRES_Data = '/mnt/local/wwx/LLM_Data/refcoco/'
+GRES_Data = '/mnt/local/wwx/data/GRES/refcoco/'
 # GRES_Data = '/root/autodl-tmp/wwx/LLM_Data/'
 GRES_refs_path = GRES_Data + 'grefcoco/grefs(unc).json'
 GRES_ann_path = GRES_Data + 'grefcoco/instances.json'

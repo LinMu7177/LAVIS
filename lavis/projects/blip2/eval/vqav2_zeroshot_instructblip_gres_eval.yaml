@@ -9,7 +9,7 @@ model:
   arch: blip2_vicuna_instruct_gres
   model_type: vicuna7b
   use_grad_checkpoint: False
-  llm_model: "/mnt/local/wwx/Models/Vicuna/vicuna-7b/"
+  llm_model: "/mnt/local/share/models/Vicuna/vicuna-7b/"
   ckpt: "/mnt/local/wwx/Output/LAVIS/GRES/FT_VQA_fix_bug/1002/20231003071/checkpoint_best.pth"
 
 datasets:

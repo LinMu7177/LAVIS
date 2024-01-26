@@ -15,7 +15,7 @@ class GRES_Model:
         --dist-url
         auto
         MODEL.WEIGHTS
-        /mnt/local/wwx/Models/GRES/gres_swin_base.pth
+        /mnt/local/wwx/ckpts/GRES/gres_swin_base.pth
         OUTPUT_DIR
         /mnt/local/wwx/Output/GRES/0918"""
 
