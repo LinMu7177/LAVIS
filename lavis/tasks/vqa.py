@@ -143,7 +143,13 @@ class VQATask(BaseTask):
             # n is precision of accuracy (number of places after decimal), default is 2
             vqa_scorer = VQAEval(vqa, vqa_result, n=2)
             logging.info("Start VQA evaluation.")
-            vqa_scorer.evaluate()
+
+
+            # Temporary annotation
+            quesIds = list(vqa_result.qa.keys())
+            vqa_scorer.evaluate(quesIds = quesIds)
+
+            # vqa_scorer.evaluate()
 
             # print accuracies
             overall_acc = vqa_scorer.accuracy["overall"]

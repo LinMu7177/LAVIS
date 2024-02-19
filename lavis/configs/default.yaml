@@ -7,5 +7,4 @@ env:
   # For default users
   # cache_root: "cache"
   # For internal use with persistent storage
-  cache_root: "/mnt/local/share/data/lavis"
-  # cache_root: "/root/autodl-tmp/wwx/LLM_Data/Lavis"
+  cache_root: "/root/autodl-tmp/data/lavis"

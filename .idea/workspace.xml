@@ -5,7 +5,565 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="367fcf09-2bd9-48eb-86f2-d6d1fae23b35" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CODEOWNERS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/Inference.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/configs/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/configs/Base-COCO-InstanceSegmentation.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/configs/referring_R50.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/configs/referring_swin_base.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/configs/referring_swin_tiny.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/data_convert.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/data_convert_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/datasets/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/datasets/DATASET.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/demo_v2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/draft.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_init_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/GRES.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/dataset_mappers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/dataset_mappers/refcoco_mapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/datasets/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/datasets/grefcoco.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/datasets/grefer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/datasets/refcoco.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/datasets/refer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/data/datasets/register_refcoco.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/evaluation/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/evaluation/refer_evaluation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/backbone/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/backbone/resnet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/backbone/swin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/criterion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/meta_arch/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/meta_arch/referring_head.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/msdeformattn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/functions/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/functions/ms_deform_attn_func.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/make.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/modules/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/modules/ms_deform_attn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/src/cpu/ms_deform_attn_cpu.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/src/cpu/ms_deform_attn_cpu.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/src/cuda/ms_deform_attn_cuda.cu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/src/cuda/ms_deform_attn_cuda.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/src/cuda/ms_deform_im2col_cuda.cuh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/src/ms_deform_attn.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/src/vision.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/ops/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/transformer_decoder/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/transformer_decoder/position_encoding.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/transformer_decoder/referring_transformer_decoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/modeling/transformer_decoder/transformer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/gres_model/utils/misc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/model_instance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/tools/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/tools/convert-pretrained-swin-model-to-d2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/tools/gres_data_transfer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReLA2/train_net.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SECURITY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Untitled1.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calculate_coco_features.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/caption.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/classification.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dataset_browser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/image_text_match.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/multimodal_search.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/multipage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/text_localization.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/vqa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/LAVIS_technical_report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/demo-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/command.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/avsd_dialogue.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/coco_caption.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/coco_retrieval.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/conceptual_captions.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/didemo_retrieval.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/flickr_retrieval.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/gqa.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/NLVR2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/avsd_dialogue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/coco_caption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/conceptual_captions.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/didemo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/flickr30k.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/gqa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/msrvtt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/msrvtt_qa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/msvd_qa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/nocaps.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/sbu_caption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/snli_ve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/imgs/vqav2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/msrvtt_qa.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/msrvtt_retrieval.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/msvd_qa.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/nlvr2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/nocaps.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/sbu_caption.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/snli_visual_entailment.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_card/vqav2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_infer.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/Confusing-Pictures.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/architecture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/logo_final.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/merlion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/benchmark.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build_docs.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/getting_started.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/intro.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/make.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.configs.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.datasets.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.evaluation.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.models.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.processors.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.tasks.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.training-example.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/albef_feature_extraction.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/albef_vqa.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/albef_zero_shot_classification.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip2_feature_extraction.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip2_image_text_matching.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip2_instructed_generation.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip_feature_extraction.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip_image_captioning.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip_image_text_matching.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip_text_localization.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip_vqa.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/blip_zero_shot_classification.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/clip_feature_extraction.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/clip_zero_shot_classification.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infer_demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/common/vqa_tools/vqa.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/common/vqa_tools/vqa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/aokvqa/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/avsd/defaults_dial.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/blip_diffusion_datasets/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/coco/defaults_cap.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/coco/defaults_ret.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/coco/defaults_vqa_gres.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/coco/eval_vqa_gres.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/conceptual_caption/defaults_12m.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/conceptual_caption/defaults_3m.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/didemo/defaults_ret.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/flickr30k/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/gqa/balanced_testdev.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/gqa/balanced_val.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/gqa/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/imagenet/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/laion/defaults_2B_multi.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/msrvtt/defaults_cap.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/msrvtt/defaults_qa.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/msrvtt/defaults_ret.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/msvd/defaults_cap.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/msvd/defaults_qa.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/nlvr/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/nocaps/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/okvqa/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/sbu_caption/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/snli_ve/defaults.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/vatex/defaults_cap.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/vg/defaults_caption.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/datasets/vg/defaults_vqa.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/default.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/configs/default.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/albef_classification_ve.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/albef_feature_extractor.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/albef_nlvr.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/albef_pretrain_base.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/albef_retrieval_coco.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/albef_retrieval_flickr.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/albef_vqav2.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/alpro_qa_msrvtt.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/alpro_qa_msvd.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/alpro_retrieval_didemo.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/alpro_retrieval_msrvtt.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/blip-diffusion/blip_diffusion_base.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/blip-diffusion/blip_diffusion_controlnet_canny.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/blip-diffusion/blip_diffusion_controlnet_depth.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/blip-diffusion/blip_diffusion_controlnet_hed.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/blip2/blip2_instruct_vicuna7b.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/configs/models/blip2/blip2_instruct_vicuna7b.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/gpt_dialogue_base.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/img2prompt-vqa/img2prompt_vqa_base.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/pnp-vqa/pnp_vqa_3b.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/pnp-vqa/pnp_vqa_base.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/pnp-vqa/pnp_vqa_large.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/pnp-vqa/unifiedqav2_3b_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/pnp-vqa/unifiedqav2_base_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/configs/models/pnp-vqa/unifiedqav2_large_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/datasets/builders/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/caption_builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/classification_builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/dialogue_builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/image_text_pair_builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/imagefolder_builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/retrieval_builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/text_to_image_generation_builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/video_qa_builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/builders/vqa_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/datasets/builders/vqa_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/aok_vqa_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/avsd_dialogue_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/caption_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/coco_caption_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/coco_vqa_datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/datasets/datasets/coco_vqa_datasets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/coco_vqa_gres_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/dataloader_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/dialogue_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/gqa_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/image_text_pair_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/imagefolder_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/laion_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/multimodal_classification_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/nlvr_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/retrieval_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/snli_ve_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/subject_driven_t2i_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/vg_vqa_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/video_caption_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/datasets/video_vqa_datasets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/DownloadConceptualCaptions/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/DownloadConceptualCaptions/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/DownloadConceptualCaptions/create_annotation_12m.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/DownloadConceptualCaptions/create_annotation_3m.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/DownloadConceptualCaptions/download_data_cc12m.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/DownloadConceptualCaptions/download_data_cc3m.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/download_didemo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/download_flickr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/download_gqa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/download_msrvtt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/download_msvd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/download_nocaps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/download_sbu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/datasets/download_scripts/download_vg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/albef_models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/albef_models/albef_classification.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/albef_models/albef_feature_extractor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/albef_models/albef_nlvr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/albef_models/albef_outputs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/albef_models/albef_pretrain.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/albef_models/albef_retrieval.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/albef_models/albef_vqa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/alpro_models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/alpro_models/alpro_outputs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/alpro_models/alpro_qa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/alpro_models/alpro_retrieval.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/blip2_image_text_matching.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/blip2_opt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/blip2_qformer.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/models/blip2_models/blip2_qformer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/blip2_t5.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/blip2_t5_instruct.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct_gres.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/modeling_opt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip2_models/modeling_t5.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_diffusion_models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_diffusion_models/blip_diffusion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_diffusion_models/modeling_ctx_clip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_diffusion_models/ptp_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_diffusion_models/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_caption.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_classification.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_feature_extractor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_image_text_matching.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_nlvr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_outputs.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/models/blip2_models/blip2_outputs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_pretrain.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_retrieval.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/blip_vqa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/blip_models/nlvr_encoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/bpe_simple_vocab_16e6.txt.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/clip_outputs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/loss.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/pics/CLIP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/pretrained.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/timm_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/tokenizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/transform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/clip_models/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/gpt_models/gpt_dialogue.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/img2prompt_models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/img2prompt_models/img2prompt_vqa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/pnp_vqa_models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/pnp_vqa_models/pnp_unifiedqav2_fid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/pnp_vqa_models/pnp_vqa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/timesformer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/timesformer/conv2d_same.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/timesformer/features.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/timesformer/helpers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/timesformer/linear.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/timesformer/vit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/models/timesformer/vit_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/processors/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/processors/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/processors/alpro_processors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/processors/blip_diffusion_processors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/processors/clip_processors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/processors/functional_video.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/processors/gpt_processors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/processors/transforms_video.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/eval/nlvr_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/eval/ret_coco_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/eval/ret_flickr30k_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/eval/snli_ve_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/eval/vqa_test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/eval/vqa_val.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/train/aokvqa_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/train/nlvr_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/train/okvqa_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/train/pretrain.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/train/ret_coco_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/train/ret_flickr30k_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/train/snli_ve_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/albef/train/vqa_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/alpro/eval/didemo_ret_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/alpro/eval/msrvtt_qa_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/alpro/eval/msrvtt_ret_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/alpro/eval/msvd_qa_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/alpro/train/didemo_ret_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/alpro/train/msrvtt_qa_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/alpro/train/msrvtt_retrieval_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/alpro/train/msvd_qa_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/coco_cap_ft_iter.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/aokvqa_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/caption_coco_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/caption_coco_eval_large.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/nlvr_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/nocaps_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/okvqa_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/ret_coco_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/ret_flickr_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/eval/vqav2_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/aokvqa_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/caption_coco_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/caption_coco_large_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/nlvr_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/okvqa_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/pretrain_14m.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/retrieval_coco_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/retrieval_flickr_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip/train/vqav2_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/caption_coco_flant5xl_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/caption_coco_opt2.7b_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/caption_coco_opt6.7b_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/gqa_zeroshot_flant5xl_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/okvqa_zeroshot_flant5xl_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/ret_coco_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/ret_flickr_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_flant5xl_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_eval.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_eval.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_gres_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_opt_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/train/caption_coco_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/train/instructblip_gres_vqav2_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/train/instructblip_vqav2_ft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/projects/blip2/train/instructblip_vqav2_ft.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip2/train/retrieval_coco_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip_diffusion/finetune-db-dog.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip_diffusion/finetune-db-pink-dress.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip_diffusion/finetune-db-shein-jacket.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/blip_diffusion/finetune-db-template.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/clip/exp_coco_ret_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/clip/exp_flickr_ret_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/clip/exp_imnet_zs_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/gpt/eval/dialogue_avsd_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/gpt/train/dialogue_avsd_ft.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/gqa_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/gqa_eval_3b.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/gqa_eval_large.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/okvqa_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/okvqa_eval_3b.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/okvqa_eval_large.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/vqav2_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/vqav2_eval_3b.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/vqav2_eval_large.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/vqav2_test_eval.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/vqav2_test_eval_3b.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/projects/pnp-vqa/eval/vqav2_test_eval_large.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/tasks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/tasks/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/tasks/dialogue.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/tasks/image_text_pretrain.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/tasks/multimodal_classification.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/tasks/retrieval.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/tasks/text_to_image_generation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/tasks/vqa.py" beforeDir="false" afterPath="$PROJECT_DIR$/lavis/tasks/vqa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lavis/tasks/vqa_reading_comprehension.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/black-cat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/cat-sofa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dog2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog/00.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog/01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog/02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog/03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog/04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog8/00.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog8/01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog8/02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog8/03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dreambooth/dog8/04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/dress-model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/flower.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/green-skirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/jacket-letter-s/jacket-letter-s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/kettle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/pink-dress.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/pink-dress/pink-dress.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/images/shein-jacket/shein-jacket.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/notebooks/editing_real_finetuned.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/notebooks/editing_real_zeroshot.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/notebooks/editing_synthetic_zeroshot.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/notebooks/editing_tryon_zeroshot.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/notebooks/generation_finetuned_dog.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/notebooks/generation_zeroshot.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/notebooks/stylization.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip-diffusion/teaser-website.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip2/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip2/blip2_illustration.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/blip2/model_card.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2llm-vqa/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2llm-vqa/Caption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2llm-vqa/Illustration.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2llm-vqa/QuestionGeneration.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2llm-vqa/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2llm-vqa/demo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2llm-vqa/img2llm_vqa.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2llm-vqa/img2llm_vqa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2prompt-vqa/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/img2prompt-vqa/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/instructblip/run_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/instructblip/run_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/pnp-vqa/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/pnp-vqa/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/pnp-vqa/pnp_vqa.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/pnp-vqa/pnp_vqa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/eval/eval_albef_nlvr.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/eval/eval_albef_ve.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/eval/eval_coco_retrieval.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/eval/eval_flickr30k_retrieval.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/eval/test_albef_vqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/eval/val_albef_vqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/train/pretrain.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/train/train_aokvqa_albef.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/train/train_coco_retrieval_albef.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/train/train_flickr30k_retrieval_albef.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/train/train_nlvr_albef.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/train/train_okvqa_albef.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/train/train_ve_albef.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/albef/train/train_vqa_albef.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/eval/eval_didemo_ret.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/eval/eval_msrvtt_qa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/eval/eval_msrvtt_ret.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/eval/eval_msvd_qa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/train/train_didemo_ret.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/train/train_msrvtt_qa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/train/train_msrvtt_ret.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/alpro/train/train_msvd_qa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip-diffusion/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip-diffusion/train_db.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip-diffusion/train_db_dog.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip-diffusion/train_db_jacket_s.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip-diffusion/train_db_pink_dress.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip-diffusion/train_db_shein_jacket.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/eval_aokvqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/eval_coco_cap.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/eval_coco_cap_large.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/eval_nlvr.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/eval_nocaps.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/eval_okvqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/eval_ret_coco.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/eval_ret_flickr.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/eval/validate_vqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/pretrain.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_aokvqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_caption_coco.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_caption_coco_large.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_caption_coco_large_iters.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_nlvr.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_okvqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_retrieval_coco.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_retrieval_flickr.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip/train/train_vqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/eval_cap_coco_flant5xl.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/eval_cap_coco_opt2.7b.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/eval_cap_coco_opt6.7b.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/eval_gqa_zeroshot_flant5xl.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/eval_okvqa_zeroshot_flant5xl.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/eval_ret_coco.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/eval_ret_flickr.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/validate_vqa_zeroshot_flant5xl.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/eval/validate_vqa_zeroshot_opt.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/train/pretrain_stage1.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/train/pretrain_stage2.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/train/train_caption_coco.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/blip2/train/train_retrieval_coco.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/clip/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/clip/eval/eval_clip_ret_coco.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/clip/eval/eval_clip_ret_flickr.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/clip/eval/eval_clip_zs_imnet.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/gpt/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/gpt/eval/eval_video_dialogue_avsd.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/gpt/train/train_video_dialogue_avsd.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_gqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_gqa_3b.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_gqa_large.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_okvqa.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_okvqa_3b.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_okvqa_large.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_vqav2.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_vqav2_3b.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_vqav2_large.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_vqav2_test.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_vqav2_test_3b.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/pnp-vqa/eval/eval_vqav2_test_large.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/run_browser.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_scripts/run_demo.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/.uuid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/test_albef.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/test_blip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/test_blip2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/test_pnp_vqa.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,38 +581,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/anaconda3/envs/test/lib/python3.8/site-packages/torch/nn/functional.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/test/lib/python3.8/site-packages/torch/nn/modules/module.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/anaconda3/envs/test/lib/python3.8/site-packages/yaml/parser.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/miniconda3/envs/lavis/lib/python3.8/site-packages/torchvision/datasets/utils.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/miniconda3/envs/lavis/lib/python3.8/urllib/request.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/README.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReLA2/Inference.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReLA2/gres_init_model.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReLA2/gres_model/GRES.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReLA2/gres_model/modeling/backbone/swin.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReLA2/gres_model/modeling/meta_arch/referring_head.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReLA2/gres_model/modeling/pixel_decoder/msdeformattn.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/common/dist_utils.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/common/logger.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/common/registry.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/datasets/datasets/base_dataset.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lavis/datasets/datasets/coco_vqa_gres_datasets.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/datasets/datasets/dataloader_utils.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/datasets/datasets/vqa_datasets.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/models/blip2_models/blip2.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct_gres.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/models/blip2_models/modeling_llama.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lavis/models/blip_models/blip.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lavis/models/blip_models/blip_vqa.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/models/eva_vit.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/models/med.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/processors/blip_processors.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/processors/randaugment.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/projects/blip/train/vqav2_ft.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_eval.yaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lavis/projects/blip2/eval/vqav2_zeroshot_instructblip_gres_eval.yaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lavis/projects/blip2/train/instructblip_gres_vqav2_ft.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/runners/runner_base.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/tasks/base_task.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lavis/tasks/vqa.py" root0="FORCE_HIGHLIGHTING" />
@@ -68,29 +613,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/root/users/wwx/paper_worksapce/LAVIS/ReLA2/gres_model/GRES.py&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;/root/users/wwx/paper_worksapce/LAVIS/ReLA2/gres_model/GRES.py&quot;,
-    &quot;two.files.diff.last.used.folder&quot;: &quot;/root/users/wwx/paper_worksapce/LAVIS/ReLA2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/root/workspace/LAVIS/lavis/models/blip2_models",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "two.files.diff.last.used.file": "/root/users/wwx/paper_worksapce/LAVIS/ReLA2/gres_model/GRES.py",
+    "two.files.diff.last.used.folder": "/root/users/wwx/paper_worksapce/LAVIS/ReLA2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="PyDebuggerOptionsProvider">
     <option name="mySupportGeventDebugging" value="true" />
   </component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="false">
     <layout>
       <window_info id="Commit_Guest" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18411458" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25963542" />
       <window_info id="Space Code Reviews" order="1" />
       <window_info id="Bookmarks" order="2" side_tool="true" />
       <window_info id="Structure" order="3" weight="0.1267361" />
@@ -98,18 +643,19 @@
       <window_info id="Commit" order="5" />
       <window_info id="VcsChanges" order="6" weight="0.33020833" />
       <window_info id="Learn" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" weight="0.3300926" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="TypeScript" order="1" />
       <window_info anchor="bottom" id="Python Packages" order="2" />
       <window_info anchor="bottom" id="File Transfer" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.62166667" />
       <window_info anchor="bottom" id="Python Console" order="5" />
-      <window_info anchor="bottom" id="Problems View" order="6" />
+      <window_info anchor="bottom" id="Problems View" order="6" weight="0.3300926" />
       <window_info anchor="bottom" id="Services" order="7" weight="0.33055556" />
       <window_info anchor="bottom" id="Dependency Checker" order="8" />
-      <window_info anchor="bottom" id="Debug" order="9" visible="true" weight="0.45166665" />
-      <window_info active="true" anchor="bottom" id="Run" order="10" visible="true" weight="0.5958333" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3865741" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.38009262" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.43009257" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.49953705" />
       <window_info anchor="bottom" id="Jupyter" order="12" weight="0.3300926" />
       <window_info anchor="right" id="Endpoints" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="1" weight="0.32994792" />
@@ -180,9 +726,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/test/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -512,6 +1058,10 @@
       <workItem from="1706159308832" duration="7691000" />
       <workItem from="1706185749926" duration="599000" />
       <workItem from="1707116671698" duration="359000" />
+      <workItem from="1708235282859" duration="599000" />
+      <workItem from="1708252471556" duration="1485000" />
+      <workItem from="1708317134705" duration="5093000" />
+      <workItem from="1708326056631" duration="6105000" />
     </task>
     <servers />
   </component>
@@ -537,11 +1087,6 @@
           <line>126</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct_gres.py</url>
-          <line>172</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lavis/datasets/datasets/coco_vqa_datasets.py</url>
           <line>65</line>
@@ -551,31 +1096,6 @@
           <url>file://$PROJECT_DIR$/lavis/datasets/datasets/vqa_datasets.py</url>
           <line>17</line>
           <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct_gres.py</url>
-          <line>143</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/lavis/models/blip2_models/blip2_vicuna_instruct_gres.py</url>
-          <line>170</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/ReLA2/Inference.py</url>
@@ -597,30 +1117,40 @@
           <line>149</line>
           <option name="timeStamp" value="108" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/lavis/common/vqa_tools/vqa_eval.py</url>
+          <line>198</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/lavis/common/vqa_tools/vqa_eval.py</url>
+          <line>199</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/LAVIS$evaluate_gres_instructblip.coverage" NAME="evaluate_gres_instructblip Coverage Results" MODIFIED="1706095669611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$train_blip.coverage" NAME="train_blip Coverage Results" MODIFIED="1695876000959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$multi_gres_evaluate_instructblip.coverage" NAME="multi_gres_evaluate_instructblip Coverage Results" MODIFIED="1696573042513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$train_instructblip.coverage" NAME="train_instructblip Coverage Results" MODIFIED="1696247334320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$infer_demo.coverage" NAME="infer_demo Coverage Results" MODIFIED="1695264708222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lavis/datasets/datasets" />
-    <SUITE FILE_PATH="coverage/LAVIS$demo.coverage" NAME="demo Coverage Results" MODIFIED="1695260068442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ReLA2" />
-    <SUITE FILE_PATH="coverage/LAVIS$mmmulti_train_instructblip.coverage" NAME="multi_train_instructblip Coverage Results" MODIFIED="1696171429748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$tmpppppppppp.coverage" NAME="tmpppppppppp Coverage Results" MODIFIED="1695524336362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lavis/models/blip2_models" />
-    <SUITE FILE_PATH="coverage/LAVIS$demo_v2.coverage" NAME="demo_v2 Coverage Results" MODIFIED="1695264788062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ReLA2" />
-    <SUITE FILE_PATH="coverage/LAVIS$multi_gres_train_instructblip.coverage" NAME="multi_gres_train_instructblip Coverage Results" MODIFIED="1696568885103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$run_demo.coverage" NAME="run_demo Coverage Results" MODIFIED="1695026890345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/instructblip" />
-    <SUITE FILE_PATH="coverage/LAVIS$evaluate.coverage" NAME="evaluate_instructblip Coverage Results" MODIFIED="1695093854980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$train_gres_instructblip.coverage" NAME="train_gres_instructblip Coverage Results" MODIFIED="1706166726464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$train.coverage" NAME="train Coverage Results" MODIFIED="1695003134877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$multi_train_instructblip.coverage" NAME="multi_train_instructblip Coverage Results" MODIFIED="1696167459177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LAVIS$demo_test.coverage" NAME="demo_test Coverage Results" MODIFIED="1706167726351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$multi_evaluate_instructblip.coverage" NAME="multi_evaluate_instructblip Coverage Results" MODIFIED="1696570657447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$infer_demo__1_.coverage" NAME="infer_demo (1) Coverage Results" MODIFIED="1695268322072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$evaluate_instructblip.coverage" NAME="evaluate_instructblip Coverage Results" MODIFIED="1707116992393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LAVIS$test.coverage" NAME="test Coverage Results" MODIFIED="1706170258950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$evaluate.coverage" NAME="evaluate_instructblip Coverage Results" MODIFIED="1695093854980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$train.coverage" NAME="train Coverage Results" MODIFIED="1695003134877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LAVIS$tmp_train_gres_instructblip.coverage" NAME="tmp_train_gres_instructblip Coverage Results" MODIFIED="1696566596007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$infer_demo.coverage" NAME="infer_demo Coverage Results" MODIFIED="1695264708222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lavis/datasets/datasets" />
+    <SUITE FILE_PATH="coverage/LAVIS$run_demo.coverage" NAME="run_demo Coverage Results" MODIFIED="1695026890345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projects/instructblip" />
+    <SUITE FILE_PATH="coverage/LAVIS$multi_gres_evaluate_instructblip.coverage" NAME="multi_gres_evaluate_instructblip Coverage Results" MODIFIED="1696573042513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$multi_gres_train_instructblip.coverage" NAME="multi_gres_train_instructblip Coverage Results" MODIFIED="1696568885103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$evaluate_instructblip.coverage" NAME="evaluate_instructblip Coverage Results" MODIFIED="1708331619429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$multi_evaluate_instructblip.coverage" NAME="multi_evaluate_instructblip Coverage Results" MODIFIED="1696570657447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$demo.coverage" NAME="demo Coverage Results" MODIFIED="1695260068442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ReLA2" />
+    <SUITE FILE_PATH="coverage/LAVIS$train_gres_instructblip.coverage" NAME="train_gres_instructblip Coverage Results" MODIFIED="1706166726464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$train_blip.coverage" NAME="train_blip Coverage Results" MODIFIED="1695876000959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$test.coverage" NAME="test Coverage Results" MODIFIED="1706170258950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$demo_v2.coverage" NAME="demo_v2 Coverage Results" MODIFIED="1695264788062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ReLA2" />
+    <SUITE FILE_PATH="coverage/LAVIS$train_instructblip.coverage" NAME="train_instructblip Coverage Results" MODIFIED="1696247334320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$infer_demo__1_.coverage" NAME="infer_demo (1) Coverage Results" MODIFIED="1695268322072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$mmmulti_train_instructblip.coverage" NAME="multi_train_instructblip Coverage Results" MODIFIED="1696171429748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$evaluate_gres_instructblip.coverage" NAME="evaluate_gres_instructblip Coverage Results" MODIFIED="1706095669611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LAVIS$tmpppppppppp.coverage" NAME="tmpppppppppp Coverage Results" MODIFIED="1695524336362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lavis/models/blip2_models" />
+    <SUITE FILE_PATH="coverage/LAVIS$multi_train_instructblip.coverage" NAME="multi_train_instructblip Coverage Results" MODIFIED="1696167459177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
